@@ -1,0 +1,2270 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://https://www.unicam.it/alessiorubicini/ontologies/2023/5/untitled-ontology-34/"
+     xml:base="http://https://www.unicam.it/alessiorubicini/ontologies/2023/5/untitled-ontology-34/"
+     xmlns:WV="http://www.wurvoc.org/vocabularies/WV/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:wot="http://xmlns.com/wot/0.1/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:om-2="http://www.ontology-of-units-of-measure.org/resource/om-2/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:exoplanet-ontology="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#">
+    <owl:Ontology rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology">
+        <owl:imports rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <dc:creator>Alessio Rubicini</dc:creator>
+        <dc:description xml:lang="en">This ontology describes the domain of exoplanet study and research.</dc:description>
+        <dc:title xml:lang="en">Exoplanets Research Ontology</dc:title>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasDimension -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasDimension"/>
+    
+
+
+    <!-- http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasUnitOfMeasure -->
+
+    <owl:AnnotationProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasUnitOfMeasure">
+        <rdfs:comment xml:lang="en">Relates a data type property to a specific unit of measure.</rdfs:comment>
+        <rdfs:label xml:lang="en">has unit of measure</rdfs:label>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/FrequencyUnit"/>
+        <rdfs:range rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/PrefixedUnit"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detectedBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detectedBy">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:comment xml:lang="en">Relates a electromagnetic spectrum to the observation instruments that can detect it.</rdfs:comment>
+        <rdfs:label xml:lang="en">detected by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detectedThrough -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detectedThrough">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDetect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:comment xml:lang="en">Relates a planet to the detection method used to detect it.</rdfs:comment>
+        <rdfs:label xml:lang="en">detected through</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">Relates an observation instrument to the electromagnetic spectrums it can detect.</rdfs:comment>
+        <rdfs:label xml:lang="en">detects</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredBy">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasDiscovered"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment xml:lang="en">Relates a planet to the researchers who discovered it.</rdfs:comment>
+        <rdfs:label xml:lang="en">discovered by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredWith -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredWith">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDiscover"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:comment xml:lang="en">Relates a planet to the detection method used to discover it.</rdfs:comment>
+        <rdfs:label xml:lang="en">discovered with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasAtmosphereMainlyComposedOf -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasAtmosphereMainlyComposedOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <rdfs:comment xml:lang="en">Relates a planet to a predominant element in its amosphere composition.</rdfs:comment>
+        <rdfs:label xml:lang="en">has atmosphere mainly composed of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasDiscovered -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasDiscovered">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:comment xml:lang="en">Relates a researcher to the planets it discovered.</rdfs:comment>
+        <rdfs:label xml:lang="en">has discovered</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasSatellite -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasSatellite">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSatelliteOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:comment xml:lang="en">Relates a celestial body to a satellite in its orbit.</rdfs:comment>
+        <rdfs:label xml:lang="en">has satellite</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasTarget">
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isStudiedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:comment xml:lang="en">Relates a space mission to the celestial bodies target of the research.</rdfs:comment>
+        <rdfs:label xml:lang="en">has target</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isAffiliatedWith -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isAffiliatedWith">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:label xml:lang="en">is affiliated with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isMainlyComposedOf -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isMainlyComposedOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element"/>
+        <rdfs:comment xml:lang="en">Relates a planet to a predominant element in its composition.</rdfs:comment>
+        <rdfs:label xml:lang="en">is mainly composed of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSatelliteOf -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSatelliteOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:label xml:lang="en">is satellite of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isStudiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isStudiedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:comment xml:lang="en">Relates a celestial body to the space missions that study it.</rdfs:comment>
+        <rdfs:label xml:lang="en">is studied by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSupervisedBy -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSupervisedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#supervises"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <rdfs:label xml:lang="en">is supervised by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#makesUseOf -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#makesUseOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:label xml:lang="en">makes use of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#manifests -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#manifests">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#supervises -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#supervises">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:label xml:lang="en">supervises</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDetect -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDetect">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:label xml:lang="en">used to detect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDiscover -->
+
+    <owl:ObjectProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDiscover">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:range rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:label xml:lang="en">used to discover</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:label xml:lang="en">planet mass</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#EarthMass"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#endDate -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#endDate">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="en">Relates a space mission to its end date or expected end date.</rdfs:comment>
+        <rdfs:label xml:lang="en">end date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasChemicalSymbol -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasChemicalSymbol">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">has chemical symbol</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#imageURL -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#imageURL">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">Relates a celestial body to its real image.</rdfs:comment>
+        <rdfs:label xml:lang="en">image url</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#launchDate -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#launchDate">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="en">Relates a space mission to its launch date or expected launch date.</rdfs:comment>
+        <rdfs:label xml:lang="en">launch date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#missionStatus -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#missionStatus">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Relates a space mission to its current status.</rdfs:comment>
+        <rdfs:label xml:lang="en">mission status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#name -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#name">
+        <rdfs:domain rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/FrequencyUnit"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalEccentricity -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalEccentricity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">Relates a celestial body to its orbital eccentricity, a parameter that describes the shape of an orbit.</rdfs:comment>
+        <rdfs:label xml:lang="en">orbital eccentricity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalInclination -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalInclination">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">180.0</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalPeriod -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalPeriod">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#researchArea -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#researchArea">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Relates a researcher to its study and research area.</rdfs:comment>
+        <rdfs:label xml:lang="en">research area</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#semiMajorAxis -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#semiMajorAxis">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minExclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarMasses -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarMasses">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarRadius -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarRadius">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#A-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#A-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7500.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10000.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A moderately hot star with temperatures ranging from 7,500 to 10,000 Kelvin, that emits a significant amount of ultraviolet light and appear white in color.</rdfs:comment>
+        <rdfs:label xml:lang="en">A-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericPhenomena -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericPhenomena">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+        <rdfs:comment xml:lang="en">An event or process that occurs within the atmosphere of a celestial body.</rdfs:comment>
+        <rdfs:label xml:lang="en">atmospheric phenomena</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#B-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#B-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10000.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30000.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A hot star with temperatures ranging from 10,000 to 30,000 Kelvin. It emits strong ultraviolet radiation and appears blue-white in color. It&apos;s less massive than O-type stars but still more massive than most other stellar types</rdfs:comment>
+        <rdfs:label xml:lang="en">B-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasSatellite"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSatelliteOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isStudiedBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#manifests"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any natural object that exists in space, typically within the universe beyond Earth&apos;s atmosphere.</rdfs:comment>
+        <rdfs:label xml:lang="en">celestial body</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDetect"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A technique used to identify and confirm the presence of planets orbiting stars outside the Solar System.
+
+(https://en.wikipedia.org/wiki/Methods_of_detecting_exoplanets)</rdfs:comment>
+        <rdfs:label xml:lang="en">detection method</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DwarfPlanet -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DwarfPlanet">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:comment xml:lang="en">A small planetary-mass object that is in direct orbit of the Sun, smaller than any of the eight classical planets but still a world in its own right.</rdfs:comment>
+        <rdfs:label xml:lang="en">dwarf planet</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Dwarf_planet</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum">
+        <rdfs:comment xml:lang="en">The entire range of electromagnetic radiation, which encompasses all types of electromagnetic wave.</rdfs:comment>
+        <rdfs:label xml:lang="en">electromagnetic spectrum</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element">
+        <rdfs:comment xml:lang="en">A fundamental substance that cannot be broken down into simpler substances by chemical means, characterized by a unique atomic structure, which determines its chemical and physical properties.</rdfs:comment>
+        <rdfs:label xml:lang="en">element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#F-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#F-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6000.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7500.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A moderately hot star with temperatures ranging from 6,000 to 7,500 Kelvin, that emits a balanced distribution of visible light and appear yellow-white in color.</rdfs:comment>
+        <rdfs:label xml:lang="en">F-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#G-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#G-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5000.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6000.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A moderately hot star with temperatures ranging from 5,000 to 6,000 Kelvin, that emits weaker hydrogen lines and appear in yellow color.</rdfs:comment>
+        <rdfs:label xml:lang="en">G-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element"/>
+        <rdfs:comment xml:lang="en">A chemical element that exists predominantly in a gaseous state under normal conditions of temperature and pressure.</rdfs:comment>
+        <rdfs:label xml:lang="en">gas element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasGiant -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasGiant">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasPlanet"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">20.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A giant planet composed mainly of hydrogen and helium.</rdfs:comment>
+        <rdfs:label xml:lang="en">gas giant</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Gas_giant</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasPlanet -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasPlanet">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isMainlyComposedOf"/>
+                        <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">gas planet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#InfraredInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#InfraredInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Infrared"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#K-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#K-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3500.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5000.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A cool star with surface temperatures ranging from 3,500 to 5,000 Kelvin that emits less visible light compared to hotter stars and appear orange in color.</rdfs:comment>
+        <rdfs:label xml:lang="en">K-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#LiquidElement -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#LiquidElement">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element"/>
+        <rdfs:label xml:lang="en">A chemical element that exists in its liquid state at standard temperature and pressure conditions.</rdfs:label>
+        <rdfs:label xml:lang="en">liquid element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#M-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#M-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3500.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A coolest and least massive star, with surface temperatures below 3,500 Kelvin, that emits predominantly infrared light and appear red in color.</rdfs:comment>
+        <rdfs:label xml:lang="en">M-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MicrowavesInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MicrowavesInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Microwaves"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MiniNeptune -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MiniNeptune">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasPlanet"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">17.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A planet less massive than Neptune but resembling Neptune in that it has a thick hydrogen–helium atmosphere, probably with deep layers of ice, rock or liquid ocean.</rdfs:comment>
+        <rdfs:label xml:lang="en">mini-Neptune</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Mini-Neptune</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#O-TypeStar -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#O-TypeStar">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">30000.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A hot and massive star, with temperatures exceeding 30,000 Kelvin, that emits predominantly ultraviolet light and appear blue or bluish-white.</rdfs:comment>
+        <rdfs:label xml:lang="en">O-type</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Stellar_classification#Harvard_spectral_classification</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#usedToDiscover"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Any device or apparatus used to collect and analyze data from celestial objects.</rdfs:comment>
+        <rdfs:label xml:lang="en">observation instrument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalSpectrometer -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalSpectrometer">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalInstrument"/>
+        <rdfs:label xml:lang="en">optical spectrometer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena">
+        <rdfs:comment xml:lang="en">An observable event, occurrence, or fact that can be studied and analyzed, typically associated with natural or physical processes, that are subject to investigation and explanation through systematic observation, experimentation, and data analysis.</rdfs:comment>
+        <rdfs:label xml:lang="en">phenomena</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#discoveredWith"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detectedThrough"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A celestial body that orbits a star, is spherical or nearly spherical in shape, and has cleared its orbit of other debris, based on specific criteria set by the International Astronomical Union (IAU).</rdfs:comment>
+        <rdfs:label xml:lang="en">planet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetaryPhenomena -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetaryPhenomena">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+        <rdfs:comment xml:lang="en">An observable event or process that occurs on or within a planet and encompass various geological, atmospheric, and environmental processes that shape and influence the characteristics and behavior of planets.</rdfs:comment>
+        <rdfs:label xml:lang="en">planetary phenomena</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PotentialHabitablePlanet -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PotentialHabitablePlanet">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RockyPlanet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isMainlyComposedOf"/>
+                        <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSatelliteOf"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#F-TypeStar"/>
+                                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#G-TypeStar"/>
+                                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#K-TypeStar"/>
+                                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#M-TypeStar"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">12.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.7</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.5</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">273.0</xsd:minInclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">350.0</xsd:maxInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A celestial body, such as an planet or a moon, that exhibits conditions and characteristics conducive to supporting life as we know it</rdfs:comment>
+        <rdfs:label xml:lang="en">potential habitable planet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadiowavesInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadiowavesInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadioWaves"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasDiscovered"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isAffiliatedWith"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#supervises"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An individual who engages in scientific investigation and exploration to expand our knowledge of the universe.</rdfs:comment>
+        <rdfs:label xml:lang="en">researcher</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RockyPlanet -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RockyPlanet">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isMainlyComposedOf"/>
+                        <owl:someValuesFrom rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">rocky planet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Element"/>
+        <rdfs:comment xml:lang="en">A chemical element that exists in a solid state at standard temperature and pressure (STP).</rdfs:comment>
+        <rdfs:label xml:lang="en">solid element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpaceMission">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#hasTarget"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#isSupervisedBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#makesUseOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A planned and organized endeavor that involves sending spacecraft, probes, or satellites into outer space to achieve specific scientific, technological, or exploratory objectives.</rdfs:comment>
+        <rdfs:label xml:lang="en">space mission</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:comment xml:lang="en">A self-luminous celestial body composed primarily of hydrogen and helium that undergoes nuclear fusion in its core, generating vast amounts of energy in the form of light and heat</rdfs:comment>
+        <rdfs:label xml:lang="en">star</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#StellarPhenomena -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#StellarPhenomena">
+        <rdfs:subClassOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Phenomena"/>
+        <rdfs:comment xml:lang="en">An observable event and process that occurs in stars and encompass various physical and energetic phenomena that arise from the complex interplay of stellar structure, nuclear fusion, and stellar evolution.</rdfs:comment>
+        <rdfs:label xml:lang="en">stellar phenomena</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SubEarth -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SubEarth">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RockyPlanet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A planet &quot;substantially less massive&quot; than Earth and Venus.</rdfs:comment>
+        <rdfs:label xml:lang="en">sub-Earth</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Sub-Earth</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SuperEarth -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SuperEarth">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RockyPlanet"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetMass"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</xsd:minExclusive>
+                                    </rdf:Description>
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.0</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:onDataRange>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A planet with a mass higher than Earth&apos;s, but substantially below those of the Solar System&apos;s ice giants Uranus and Neptune.</rdfs:comment>
+        <rdfs:label xml:lang="en">super-Earth</rdfs:label>
+        <rdfs:seeAlso>https://en.wikipedia.org/wiki/Super-Earth</rdfs:seeAlso>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#UVInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#UVInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ultraviolet"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRaysInstrument -->
+
+    <owl:Class rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRaysInstrument">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#detects"/>
+                        <owl:hasValue rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRays"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Aluminum -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Aluminum">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>Al</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">aluminum</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Ammonia -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Ammonia">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>NH3</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">ammonia</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AstrometryMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AstrometryMethod">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:comment xml:lang="en">A method that involves measuring the precise positions and motions of stars to detect the presence of exoplanets. As a planet orbits its host star, it causes the star to undergo a small, periodic shift in its position relative to Earth. By precisely monitoring the star&apos;s position over time, scientists can detect these subtle shifts and infer the presence of an exoplanet. The astrometry method is particularly effective for detecting massive planets with relatively long orbital periods.</rdfs:comment>
+        <rdfs:label xml:lang="en">astrometry method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericCirculation -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericCirculation">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericPhenomena"/>
+        <rdfs:comment xml:lang="en">A large-scale movement of air within the atmosphere, driven by various factors such as solar radiation, planet rotation, and temperature differences.</rdfs:comment>
+        <rdfs:label xml:lang="en">atmospheric circulation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Auroras -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Auroras">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetaryPhenomena"/>
+        <rdfs:comment xml:lang="en">A natural light display that occurs in the upper atmosphere of a planet, typically near its polar regions. It is caused by the interaction between charged particles from the Sun and the planet&apos;s magnetic field.</rdfs:comment>
+        <rdfs:label xml:lang="en">auroras</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Carbon -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Carbon">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>C</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">carbon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CircumbinaryPlanet -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CircumbinaryPlanet">
+        <rdfs:comment xml:lang="en">A planet that orbits around two stars in a binary star system. The planet&apos;s orbit encompasses both stars, with the stars themselves orbiting a common center of mass. These planets experience complex gravitational interactions due to the presence of two stars.</rdfs:comment>
+        <rdfs:label xml:lang="en">circumbinary planet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CloudFormation -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CloudFormation">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#AtmosphericPhenomena"/>
+        <rdfs:comment xml:lang="en">The process by which visible masses of water vapor, ice particles, or a combination of both, known as clouds, develop in a planetary atmosphere.</rdfs:comment>
+        <rdfs:label xml:lang="en">cloud formation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DirectImagingMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DirectImagingMethod">
+        <rdfs:comment xml:lang="en">A method that involves capturing actual images of exoplanets. This method is challenging because exoplanets are typically much fainter than their host stars and located at close angular distances from them. Direct imaging requires advanced telescopes with high-resolution imaging capabilities and techniques to block out the overwhelming light from the star. By directly observing an exoplanet and studying its properties, such as its temperature, atmosphere, and orbital characteristics, scientists can gain valuable insights into its nature.</rdfs:comment>
+        <rdfs:label xml:lang="en">direct imaging method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DopplerSpectroscopy -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DopplerSpectroscopy">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:label xml:lang="en">Doppler spectroscopy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#EarthMass -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#EarthMass">
+        <rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/SingularUnit"/>
+        <rdf:type rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/Unit"/>
+        <om-2:hasDimension rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/mass-Dimension"/>
+        <om-2:hasUnit rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/kilogram"/>
+        <om-2:symbol xml:lang="en">M_⊕</om-2:symbol>
+        <rdfs:comment xml:lang="en">Earth mass is a unit used in astronomy to denote planetary masses (https://en.wikipedia.org/wiki/Earth_mass).</rdfs:comment>
+        <rdfs:label>earth mass</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#EccentricJupiter -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#EccentricJupiter">
+        <rdfs:comment xml:lang="en">A planet with characteristics similar to Jupiter in our solar system, but with a highly elliptical orbit. The term &quot;eccentric&quot; denotes the elongated shape of the planet&apos;s orbit, deviating significantly from a perfect circle.</rdfs:comment>
+        <rdfs:label xml:lang="en">eccentric Jupiter</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ExtragalacticPlanet -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ExtragalacticPlanet">
+        <rdfs:comment xml:lang="en">A planet located outside of our Milky Way galaxy. These planets are found in other galaxies, which are vast collections of stars, gas, and dust, separated from our own galaxy by vast cosmic distances.</rdfs:comment>
+        <rdfs:label xml:lang="en">extragalactic planet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GammaRays -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GammaRays">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">The shortest wavelengths and highest energy in the electromagnetic spectrum, gamma rays are emitted by nuclear reactions and extremely energetic events like supernovae, pulsars, and gamma-ray bursts. Gamma-ray telescopes are used to detect and study these high-energy phenomena.</rdfs:comment>
+        <rdfs:label xml:lang="en">gamma rays</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GuillemAngladaEscudé -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GuillemAngladaEscudé">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <rdfs:label>Guillem Anglada-Escudé</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HARPS -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HARPS">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#OpticalSpectrometer"/>
+        <om-2:alternativeLabel>High Accuracy Radial velocity Planet Searcher</om-2:alternativeLabel>
+        <rdfs:label>HARPS</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Helium -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Helium">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>He</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">helium</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HotJupiter -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HotJupiter">
+        <rdfs:comment xml:lang="en">A type of gas giant exoplanet that is similar in size and composition to Jupiter but orbits very close to its host star. These planets have short orbital periods and high surface temperatures due to their proximity to the star, leading to extreme heating and atmospheric conditions.</rdfs:comment>
+        <rdfs:label xml:lang="en">hot Jupiter</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HotNeptune -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HotNeptune">
+        <rdfs:comment xml:lang="en">A planet that shares similarities with Neptune in terms of size and composition but orbits very close to its host star, similar to hot Jupiters. These planets have shorter orbital periods and higher temperatures compared to their counterparts in our solar system.</rdfs:comment>
+        <rdfs:label xml:lang="en">hot Neptune</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HubbleSpaceTelescope -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HubbleSpaceTelescope">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Infrared"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ultraviolet"/>
+        <exoplanet-ontology:name>Hubble Space Telescope</exoplanet-ontology:name>
+        <om-2:abbreviation xml:lang="en">HST</om-2:abbreviation>
+        <rdfs:comment xml:lang="en">One of the most famous and successful observatories ever launched. It has revolutionized our understanding of the universe with its high-resolution images and observations across a wide range of wavelengths. Hubble has contributed to numerous discoveries, including the measurement of the Hubble constant, the identification of dark matter, and the determination of the age of the universe.</rdfs:comment>
+        <rdfs:label xml:lang="en">Hubble Space Telescope</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Hydrogen -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Hydrogen">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>H</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">hydrogen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Infrared -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Infrared">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">Longer wavelengths than visible light, infrared radiation allows astronomers to observe cool objects such as protostars, dust clouds, and the heat emitted by planets, including our own Earth.</rdfs:comment>
+        <rdfs:label xml:lang="en">infrared</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Iron -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Iron">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>Fe</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">iron</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#JamesWebbSpaceTelescope -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#JamesWebbSpaceTelescope">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Infrared"/>
+        <om-2:abbreviation xml:lang="en">JWST</om-2:abbreviation>
+        <rdfs:comment xml:lang="en">A large, space-based observatory launched in late 2021. It&apos;s the most powerful telescope ever built, with a primary mirror 6.5 meters in diameter. It observes the universe in the infrared portion of the electromagnetic spectrum, allowing it to study distant galaxies, star formation, exoplanets, and the origins of life.</rdfs:comment>
+        <rdfs:label xml:lang="en">James Webb Space Telescope</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#KeplerSpaceTelescope -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#KeplerSpaceTelescope">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight"/>
+        <rdfs:comment xml:lang="en">A space telescope launched in 2009 and operating until 2018. It used the transit method to detect exoplanets by continuously monitoring the brightness of a large number of stars. By measuring the slight dip in brightness when a planet passes in front of its host star, Kepler identified thousands of exoplanet candidates and confirmed their existence.</rdfs:comment>
+        <rdfs:label xml:lang="en">Kepler Space Telescope</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Magnesium -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Magnesium">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>Mg</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">magnesium</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Methane -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Methane">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>CH4</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">methane</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Methanol -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Methanol">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#LiquidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>CH3OH</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">methanol</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MichaëlGillon -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MichaëlGillon">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Researcher"/>
+        <exoplanet-ontology:isAffiliatedWith rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#UniversityOfLiège"/>
+        <exoplanet-ontology:name>Michaël Gillon</exoplanet-ontology:name>
+        <rdfs:label>Michaël Gillon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MicrolensingMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MicrolensingMethod">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <exoplanet-ontology:name>Microlensing</exoplanet-ontology:name>
+        <rdfs:comment xml:lang="en">A method that utilizes the phenomenon of gravitational microlensing to detect exoplanets. When a massive object, such as a star or a planet, passes in front of a more distant star, its gravitational field bends and magnifies the light from the background star. If the foreground object has a planet orbiting it, the additional gravitational influence of the planet can create subtle distortions in the magnification pattern. By carefully analyzing these distortions in the light curve of the background star, scientists can detect and characterize exoplanets.</rdfs:comment>
+        <rdfs:label xml:lang="en">microlensing method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Microwaves -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Microwaves">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">Slightly shorter wavelengths than radio waves, microwaves are used to study thermal radiation from objects like interstellar dust clouds, and to investigate the cosmic microwave background radiation.</rdfs:comment>
+        <rdfs:label xml:lang="en">microwaves</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Nitrogen -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Nitrogen">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>N</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">nitrogen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Oxygen -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Oxygen">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>O</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">oxygen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <exoplanet-ontology:distanceFromEarth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.2465</exoplanet-ontology:distanceFromEarth>
+        <exoplanet-ontology:solarMasses rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1221</exoplanet-ontology:solarMasses>
+        <exoplanet-ontology:solarRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1542</exoplanet-ontology:solarRadius>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3042.0</exoplanet-ontology:surfaceTemperature>
+        <rdfs:label>Proxima Centauri</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauriB -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauriB">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <exoplanet-ontology:detectedThrough rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DopplerSpectroscopy"/>
+        <exoplanet-ontology:discoveredBy rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GuillemAngladaEscudé"/>
+        <exoplanet-ontology:discoveredWith rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#HARPS"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Iron"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
+        <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri"/>
+        <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.173</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.062394</exoplanet-ontology:gravity>
+        <exoplanet-ontology:imageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isaacscienceblog.files.wordpress.com/2016/09/proxima-b-habitable-zone-exoplanet-illustration-2-phl-upl.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</exoplanet-ontology:orbitalEccentricity>
+        <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.1843</exoplanet-ontology:orbitalPeriod>
+        <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</exoplanet-ontology:semiMajorAxis>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</exoplanet-ontology:surfaceTemperature>
+        <rdfs:label>Proxima Centauri b</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauriD -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauriD">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <exoplanet-ontology:detectedThrough rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadialVelocityMethod"/>
+        <exoplanet-ontology:discoveredWith rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VLT"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
+        <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri"/>
+        <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.26</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:imageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://upload.wikimedia.org/wikipedia/commons/6/67/Artist’s_impression_of_Proxima_d_%28close-up%29.jpg</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</exoplanet-ontology:orbitalEccentricity>
+        <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</exoplanet-ontology:orbitalInclination>
+        <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.122</exoplanet-ontology:orbitalPeriod>
+        <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02885</exoplanet-ontology:semiMajorAxis>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">360.0</exoplanet-ontology:surfaceTemperature>
+        <rdfs:label>Proxima Centauri d</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PulsarTimingMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PulsarTimingMethod">
+        <rdfs:comment xml:lang="en">A method that involves using highly precise measurements of pulsars, which are rapidly rotating neutron stars that emit regular pulses of electromagnetic radiation. When a planet orbits a pulsar, its gravitational influence causes a measurable delay in the arrival time of the pulsar&apos;s pulses. By monitoring these timing variations over an extended period, scientists can detect the presence of exoplanets and determine their orbital parameters. The pulsar timing method is particularly effective for detecting massive planets in close orbits around pulsars.</rdfs:comment>
+        <rdfs:label xml:lang="en">pulsar timing method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadialVelocityMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadialVelocityMethod">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <exoplanet-ontology:name>Radial Velocity</exoplanet-ontology:name>
+        <rdfs:comment xml:lang="en">Also known as the Doppler spectroscopy method, a method used to detect exoplanets by observing the gravitational influence of a planet on its host star. As a planet orbits a star, it causes the star to wobble slightly due to the gravitational interaction between them. By analyzing the resulting Doppler shifts in the star&apos;s spectrum, scientists can infer the presence, mass, and orbital characteristics of the planet. This method is particularly effective for detecting massive planets located close to their host stars.</rdfs:comment>
+        <rdfs:label xml:lang="en">radial velocity method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadioWaves -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RadioWaves">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">The longest wavelengths in the electromagnetic spectrum, used to study low-frequency phenomena such as radio galaxies, pulsars, and cosmic microwave background radiation.</rdfs:comment>
+        <rdfs:label xml:lang="en">radio waves</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RoguePlanet -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#RoguePlanet">
+        <rdfs:comment xml:lang="en">A planet that does not orbit any star. Instead, it drifts freely through space, not bound by the gravitational pull of a star. These planets may have been ejected from their original star systems or formed independently without ever being associated with a star.</rdfs:comment>
+        <rdfs:label xml:lang="en">rogue planet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SolidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>Si</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">silicon</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpitzerSpaceTelescope -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#SpitzerSpaceTelescope">
+        <rdfs:comment xml:lang="en">A space telescope that played a crucial role in exoplanet research. Operating primarily in the infrared range, it detected exoplanets through the transit method and studied their atmospheres using spectroscopy. Spitzer&apos;s observations contributed to the characterization of exoplanet atmospheres and the understanding of their thermal properties.</rdfs:comment>
+        <rdfs:label xml:lang="en">Spitzer Space Telescope</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#StellarFlare -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#StellarFlare">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#StellarPhenomena"/>
+        <rdfs:comment xml:lang="en">A sudden and intense release of energy from the surface or atmosphere of a star, characterized by a rapid increase in brightness across various wavelengths of electromagnetic radiation, particularly in the X-ray and ultraviolet (UV) spectra.</rdfs:comment>
+        <rdfs:label xml:lang="en">stellar flare</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TRAPPIST -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TRAPPIST">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <rdfs:label>TRAnsiting Planets and PlanetesImals Small Telescope</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitMethod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitMethod">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#DetectionMethod"/>
+        <rdfs:comment xml:lang="en">A popular technique used to detect exoplanets that involves observing a star and looking for periodic dips in its brightness. These dips occur when a planet passes in front of the star, blocking a small fraction of its light. By measuring the regularity and depth of these brightness changes, scientists can infer the presence of an exoplanet. This method provides information about the size, orbital period, and orbital inclination of the planet.</rdfs:comment>
+        <rdfs:label xml:lang="en">transit method</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitingExoplanetSurveySatellite -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitingExoplanetSurveySatellite">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRays"/>
+        <om-2:abbreviation xml:lang="en">TESS</om-2:abbreviation>
+        <rdfs:comment xml:lang="en">A space telescope designed to search for exoplanets using the transit method. It monitors large sections of the sky, known as sectors, for extended periods, allowing it to detect transiting exoplanets around nearby stars. TESS has already discovered numerous exoplanets and continues to provide valuable data for further research.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transiting Exoplanet Survey Satellite</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1 -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <exoplanet-ontology:distanceFromEarth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.5</exoplanet-ontology:distanceFromEarth>
+        <exoplanet-ontology:imageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://assets.weforum.org/editor/eUKigKpWTrnoCZzdRm0i8OwC75UOsIY13RtUZsaCWjM.JPG</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:rotationalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.3</exoplanet-ontology:rotationalPeriod>
+        <exoplanet-ontology:solarMasses rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.086</exoplanet-ontology:solarMasses>
+        <exoplanet-ontology:solarRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.119</exoplanet-ontology:solarRadius>
+        <exoplanet-ontology:surfacePressure rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2628.0</exoplanet-ontology:surfacePressure>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2550.0</exoplanet-ontology:surfaceTemperature>
+        <om-2:longcomment xml:lang="en">A small, ultra-cool dwarf star located approximately 39 light-years away from Earth, in the constellation Aquarius. It gained significant attention in 2017 when a system of seven Earth-sized exoplanets was discovered orbiting around it. These exoplanets, collectively known as the Trappist-1 system, sparked great interest in the scientific community due to their potential for supporting liquid water and, therefore, the possibility of harboring life.</om-2:longcomment>
+        <rdfs:label>Trappist-1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1d -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1d">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <exoplanet-ontology:detectedThrough rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitMethod"/>
+        <exoplanet-ontology:discoveredBy rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MichaëlGillon"/>
+        <exoplanet-ontology:discoveredWith rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TRAPPIST"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Iron"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
+        <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1"/>
+        <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.389</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.737</exoplanet-ontology:gravity>
+        <exoplanet-ontology:imageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/TRAPPIST-1d_Artist%27s_Impression.png/800px-TRAPPIST-1d_Artist%27s_Impression.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.00837</exoplanet-ontology:orbitalEccentricity>
+        <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89.87</exoplanet-ontology:orbitalInclination>
+        <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.05</exoplanet-ontology:orbitalPeriod>
+        <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.022</exoplanet-ontology:semiMajorAxis>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">267.0</exoplanet-ontology:surfaceTemperature>
+        <om-2:longcomment xml:lang="en">Trappist-1d is one of the seven exoplanets that orbit the Trappist-1 star, located approximately 39 light-years away from Earth. It&apos;s an Earth-sized planet, meaning it has a similar size to our own planet. It resides within the habitable zone of its star, also known as the Goldilocks zone, where conditions may be just right for liquid water to exist on its surface. This is an important factor in the search for potentially habitable worlds.</om-2:longcomment>
+        <rdfs:label>Trappist-1d</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1e -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1e">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <exoplanet-ontology:detectedThrough rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TransitMethod"/>
+        <exoplanet-ontology:discoveredBy rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#MichaëlGillon"/>
+        <exoplanet-ontology:discoveredWith rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#TRAPPIST"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Iron"/>
+        <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
+        <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1"/>
+        <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.692</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.12</exoplanet-ontology:gravity>
+        <exoplanet-ontology:imageURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/TRAPPIST-1e_Artist%27s_Impression.png/800px-TRAPPIST-1e_Artist%27s_Impression.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</exoplanet-ontology:orbitalEccentricity>
+        <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89.86</exoplanet-ontology:orbitalInclination>
+        <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</exoplanet-ontology:orbitalPeriod>
+        <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.028</exoplanet-ontology:semiMajorAxis>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250.0</exoplanet-ontology:surfaceTemperature>
+        <om-2:longcomment xml:lang="en">Trappist-1e is an Earth-sized exoplanet, situated approximately 39 light-years away from Earth, that offers unique characteristics that make it a captivating subject of study. Its proximity to its host star places it within the habitable zone, the region where conditions may allow for the existence of liquid water on its surface.</om-2:longcomment>
+        <rdfs:label>Trappist-1e</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#UniversityOfLiège -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#UniversityOfLiège">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VLT -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VLT">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ObservationInstrument"/>
+        <exoplanet-ontology:detects rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight"/>
+        <om-2:alternativeLabel xml:lang="en">Very Large Telescope</om-2:alternativeLabel>
+        <rdfs:label xml:lang="en">VLT</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VisibleLight">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">The portion of the electromagnetic spectrum that is visible to the human eye. It is used to observe and study a wide range of astronomical objects, including stars, galaxies, and nebulae.</rdfs:comment>
+        <rdfs:label xml:lang="en">visible light</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VolcanicActivity -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#VolcanicActivity">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#PlanetaryPhenomena"/>
+        <rdfs:comment xml:lang="en">A process and phenomena associated with the movement, eruption, and release of molten rock (magma), volcanic gases, and other materials from the planet interior onto the surface or into the atmosphere through volcanic vents or openings.</rdfs:comment>
+        <rdfs:label xml:lang="en">volcanic activity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Water -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Water">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#LiquidElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>H2O</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">water</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#WaterVapor -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#WaterVapor">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#GasElement"/>
+        <exoplanet-ontology:hasChemicalSymbol>H2O</exoplanet-ontology:hasChemicalSymbol>
+        <rdfs:label xml:lang="en">water vapor</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRays -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#XRays">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">Much shorter wavelengths than visible light, X-rays are emitted by high-energy phenomena such as black holes, neutron stars, and hot gas in galaxy clusters. Observing X-rays requires specialized telescopes and detectors.</rdfs:comment>
+        <rdfs:label xml:lang="en">x-rays</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalInclination -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalInclination"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalPeriod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalPeriod"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#semiMajorAxis -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#semiMajorAxis"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarMasses -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarMasses"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarRadius -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarRadius"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature"/>
+    
+
+
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ultraviolet -->
+
+    <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ultraviolet">
+        <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ElectromagneticSpectrum"/>
+        <rdfs:comment xml:lang="en">Shorter wavelengths than visible light, ultraviolet radiation is used to study hot and energetic objects like young stars, supernovae, and active galactic nuclei.</rdfs:comment>
+        <rdfs:label xml:lang="en">ultraviolet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth">
+        <rdfs:comment xml:lang="en">Relates a star system to its distance from Earth.</rdfs:comment>
+        <rdfs:label xml:lang="en">distance from Earth</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/lightYear"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#gravity">
+        <rdfs:comment xml:lang="en">Relates a planet to its gravitational force.</rdfs:comment>
+        <rdfs:label xml:lang="en">gravity</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/metrePerSecond-TimeSquared"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalInclination">
+        <rdfs:comment xml:lang="en">Relates a planet to its orbital inclination, the angle between the orbital plane of a celestial body and a reference plane, typically the plane of the Earth&apos;s equator or the ecliptic plane.</rdfs:comment>
+        <rdfs:label xml:lang="en">orbital inclination</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/degree"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#orbitalPeriod">
+        <rdfs:comment xml:lang="en">Relates a celestial body to its orbital period, the time taken to complete one full orbit around another object expressed in Earth&apos;s years.</rdfs:comment>
+        <rdfs:label xml:lang="en">orbital period</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/day"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod">
+        <rdfs:comment xml:lang="en">Relates a planet to its rotational period, the time it takes for an object to complete one full rotation around its axis.</rdfs:comment>
+        <rdfs:label xml:lang="en">rotational period</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/day"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#semiMajorAxis">
+        <rdfs:comment xml:lang="en">Relates a celestial body to its semi major axis, a fundamental parameter used to describe the shape and size of an elliptical orbit.</rdfs:comment>
+        <rdfs:label xml:lang="en">semi major axis</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/astronomicalUnit"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarMasses">
+        <rdfs:comment xml:lang="en">Relates a star to its mass expressed in solar masses.</rdfs:comment>
+        <rdfs:label xml:lang="en">solar masses</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/solarMass"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#solarRadius">
+        <rdfs:comment xml:lang="en">Relates a star to its radius, expressed in solar radius.</rdfs:comment>
+        <rdfs:label xml:lang="en">solar radius</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/solarRadius"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfacePressure">
+        <rdfs:label xml:lang="en">surface pressure</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/atmosphere-Standard"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#surfaceTemperature">
+        <rdfs:label xml:lang="en">surface temperature</rdfs:label>
+        <exoplanet-ontology:hasUnitOfMeasure rdf:resource="http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
