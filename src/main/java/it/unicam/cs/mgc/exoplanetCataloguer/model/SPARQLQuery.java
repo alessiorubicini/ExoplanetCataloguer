@@ -1,15 +1,19 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
-public interface SPARQLQuery {
+public interface SPARQLQuery{
 
+    /**
+     * Returns the SPARQL query as a string
+     * @return
+     */
     String getQueryString();
 
     /**
-     *
-     * @param values
-     * @return
+     * Returns a formatted SPARQL query with the specified arguments.
+     * @param args Arguments referenced by the format specifiers in the format string.
+     * @return a formatted string containing the SPARQL query
      */
-    String getQueryString(Object... values);
+    String getQueryString(Object... args);
 
     /**
      * Get the SPARQL prefixes necessary for queries

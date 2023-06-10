@@ -1,6 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import org.apache.jena.atlas.json.JsonObject;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.Model;
 
 import java.util.Iterator;
@@ -16,7 +17,7 @@ public interface SPARQLQueryExecutor {
      * @param model the target of the query
      * @return an iterator over a JSON collection of ontology statements
      */
-    Iterator<JsonObject> perform(SelectionQuery query, Model model);
+    QueryExecution perform(SelectionQuery query, Model model);
 
     /**
      * Performs a Sparql selection query on the given model
@@ -25,7 +26,7 @@ public interface SPARQLQueryExecutor {
      * @param model the target of the query
      * @return an iterator over a JSON collection of ontology statements
      */
-    Iterator<JsonObject> perform(SelectionQuery query, String parameter, Model model);
+    QueryExecution perform(SelectionQuery query, String parameter, Model model);
 
     /**
      * Performs a Sparql update query on the given model

@@ -7,9 +7,7 @@ import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.util.FileManager;
-import org.apache.jena.atlas.json.JsonObject;
 
-import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -18,7 +16,7 @@ import java.util.Objects;
 public class OntologyController {
 
     private InfModel ontologyModel;
-    private OntologyQueryExecutor queryExecutor;
+    private final OntologyQueryExecutor queryExecutor;
 
     public OntologyController() {
         this.buildAndLoadOWLDLModel();
@@ -39,19 +37,21 @@ public class OntologyController {
     /**
      * Asks data to the ontology model
      * @param query the data
-     * @return
+     * @return the data chunk result of the query
      */
-    public Iterator<JsonObject> get(SelectionQuery query) {
-        return this.queryExecutor.perform(query, this.ontologyModel);
+    public AppData get(SelectionQuery query) {
+        SparqlToJSON parser = new SparqlToJSON();
+        return parser.parse(this.queryExecutor.perform(query, this.ontologyModel));
     }
 
     /**
      * Asks data to the ontology model
      * @param query the data
-     * @return
+     * @return the data chunk result of the query
      */
-    public Iterator<JsonObject> get(SelectionQuery query, String parameter) {
-        return this.queryExecutor.perform(query, parameter, this.ontologyModel);
+    public AppData get(SelectionQuery query, String parameter) {
+        SparqlToJSON parser = new SparqlToJSON();
+        return parser.parse(this.queryExecutor.perform(query, parameter, this.ontologyModel));
     }
 
     /**

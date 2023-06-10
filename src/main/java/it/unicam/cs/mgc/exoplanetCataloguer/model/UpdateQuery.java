@@ -14,4 +14,9 @@ public enum UpdateQuery implements SPARQLQuery {
     public String getQueryString() {
         return query;
     }
+
+    @Override
+    public String getQueryString(Object... args) {
+        return String.format(query, args);
+    }
 }
