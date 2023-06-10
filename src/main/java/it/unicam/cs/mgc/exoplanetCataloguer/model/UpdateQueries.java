@@ -1,13 +1,13 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
-public enum UpdateQuery implements SPARQLQuery {
+public enum UpdateQueries implements SPARQLQueries {
     INSERT_PLANET(""),
     INSERT_STAR(""),
     INSERT_RESEARCHER("");
 
     private final String query;
 
-    UpdateQuery(String query) {
+    UpdateQueries(String query) {
         this.query = query;
     }
 

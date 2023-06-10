@@ -29,27 +29,28 @@ public class OntologyController {
     public void buildAndLoadOWLDLModel() {
         OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
         FileManager fileManager = FileManager.getInternal();
-        model.read(fileManager.open(Objects.requireNonNull(getClass().getResource("/owl/exoplanets-ontology.rdf")).toString()), null);
-        Reasoner reasoner = ReasonerRegistry.getOWLReasoner().bindSchema(this.ontologyModel);
-        this.ontologyModel = ModelFactory.createInfModel(reasoner, this.ontologyModel);
+        model.read(fileManager.open(Objects.requireNonNull(getClass().getResource("/owl/exoplanet-ontology.rdf")).toString()), null);
+        Reasoner reasoner = ReasonerRegistry.getOWLReasoner().bindSchema(model);
+        this.ontologyModel = ModelFactory.createInfModel(reasoner, model);
     }
 
     /**
-     * Asks data to the ontology model
+     * Gets data from the ontology model
      * @param query the data
      * @return the data chunk result of the query
      */
-    public AppData get(SelectionQuery query) {
+    public AppData get(SelectionQueries query) {
         SparqlToJSON parser = new SparqlToJSON();
         return parser.parse(this.queryExecutor.perform(query, this.ontologyModel));
     }
 
     /**
-     * Asks data to the ontology model
+     * Gets data from the ontology model
      * @param query the data
+     * @param parameter the parameter for the query
      * @return the data chunk result of the query
      */
-    public AppData get(SelectionQuery query, String parameter) {
+    public AppData get(SelectionQueries query, String parameter) {
         SparqlToJSON parser = new SparqlToJSON();
         return parser.parse(this.queryExecutor.perform(query, parameter, this.ontologyModel));
     }
@@ -58,7 +59,7 @@ public class OntologyController {
      * Posts a data update to the ontology model
      * @param query
      */
-    public void post(UpdateQuery query) {
+    public void post(UpdateQueries query) {
         this.queryExecutor.perform(query, this.ontologyModel);
     }
 

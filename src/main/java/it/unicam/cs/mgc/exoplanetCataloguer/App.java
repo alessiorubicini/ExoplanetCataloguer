@@ -16,10 +16,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/mainview.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/main.fxml")));
 
         primaryStage.setTitle("Exoplanet Cataloguer");
-        primaryStage.setScene(new Scene(root, 700, 300));
+        primaryStage.setScene(new Scene(root, 1100, 600));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

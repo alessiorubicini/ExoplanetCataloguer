@@ -28,5 +28,5 @@ test {
 
 application {
     // Define the main class for the application.
-    mainClass = '...'
+    mainClass = 'it.unicam.cs.mgc.exoplanetCataloguer.App'
 }

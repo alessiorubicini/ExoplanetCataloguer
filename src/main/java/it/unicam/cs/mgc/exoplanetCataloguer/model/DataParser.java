@@ -9,9 +9,9 @@ import org.apache.jena.query.QueryExecution;
 public interface DataParser {
 
     /**
-     * Parses data from a SPARQL query execution to app data
-     * @param queryExecution
-     * @return the query result in a specific format
+     * Parses the result from a SPARQL query execution to a chunk of data
+     * @param queryExecution the SPARQL query execution
+     * @return the data chunk from the query result
      */
     AppData parse(QueryExecution queryExecution);
 
