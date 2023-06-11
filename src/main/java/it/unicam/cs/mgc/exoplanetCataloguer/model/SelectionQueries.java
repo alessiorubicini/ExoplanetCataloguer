@@ -4,8 +4,9 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
  * A Sparql query to select data from a RDF graph
  */
 public enum SelectionQueries implements SPARQLQueries {
-    PLANETS_LIST(""),
+    PLANETS_LIST("JSON { 'label': ?label, 'value':?value } WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . }"),
     PLANET_DETAILS(""),
+    SEARCH_PLANET("JSON { 'label':?label, 'value':?value } WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . FILTER(CONTAINS(?value, \"%s\")) }"),
     MISSION_DETAILS(""),
     RESEARCHER_DETAILS(""),
     STAR_DETAILS("");

@@ -18,6 +18,14 @@ public interface SPARQLQueries {
      */
     String getQueryString(Object... args);
 
+    default String getCompleteQuery() {
+        return getPrefixes() + this.getQueryString();
+    }
+
+    default String getCompleteQuery(Object...args) {
+        return getPrefixes() + this.getQueryString(args);
+    }
+
     static String getOntologyURI() {
         return "https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#";
     }

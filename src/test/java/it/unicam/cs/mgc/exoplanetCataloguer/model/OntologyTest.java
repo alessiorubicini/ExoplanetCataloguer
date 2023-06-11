@@ -1,6 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
+import org.apache.jena.assembler.Mode;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
@@ -9,36 +10,34 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
-public class OntologyTest {
+@Disabled
+public class OntologyTest extends ModelLoadTest {
 
-    private OntologyController ontologyController;
     private InfModel testModel;
 
     @BeforeEach
     @Test
     public void setUp() {
-        ontologyController = new OntologyController();
-        InfModel model = ontologyController.buildAndLoadOWLDLModel();
+        controller = new OntologyController();
+        InfModel model = controller.buildAndLoadOWLDLModel();
         this.testModel = model;
         assertNotNull(model);
     }
 
     @Test
     public void testIsOntologyConsistent() {
-        boolean isConsistent = ontologyController.isOntologyConsistent();
+        boolean isConsistent = controller.isOntologyConsistent();
         assertTrue(isConsistent);
     }
 
     @Test
-    @Disabled
     public void testIsCorrectlyInferred() {
         Resource subject = testModel.getResource(OntologyURIs.OWL + "Thing");
         Property predicate = testModel.getProperty(OntologyURIs.RDFS + "subClassOf");
         Resource object = testModel.getResource(OntologyURIs.OWL + "Thing");
 
-        boolean isInferred = ontologyController.isCorrectlyInferred(subject, predicate, object);
+        boolean isInferred = controller.isCorrectlyInferred(subject, predicate, object);
         assertTrue(isInferred);
     }
 }

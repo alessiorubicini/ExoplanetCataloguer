@@ -40,4 +40,8 @@ public class Controller {
         return ontController.get(SelectionQueries.PLANET_DETAILS, planetName);
     }
 
+    public ParsedData searchPlanet(String planetName) {
+        return ontController.get(SelectionQueries.SEARCH_PLANET, planetName);
+    }
+
 }

@@ -29,9 +29,12 @@ public class OntologyController {
      */
     public InfModel buildAndLoadOWLDLModel() {
         OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
+        System.out.println("Istantiating model...");
         FileManager fileManager = FileManager.getInternal();
         model.read(fileManager.open(Objects.requireNonNull(getClass().getResource("/owl/exoplanet-ontology.rdf")).toString()), null);
+        System.out.println("Reading ontology...");
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner().bindSchema(model);
+        System.out.println("Creating inferred model...");
         return ModelFactory.createInfModel(reasoner, model);
     }
 
@@ -40,7 +43,7 @@ public class OntologyController {
      * @param query the data
      * @return the data chunk result of the query
      */
-    public ParsedData get(SelectionQueries query) {
+    public JSONData get(SelectionQueries query) {
         JSONParser parser = new JSONParser();
         return parser.parse(this.queryExecutor.perform(query, this.ontologyModel));
     }
@@ -51,7 +54,7 @@ public class OntologyController {
      * @param args the parameter for the query
      * @return the data chunk result of the query
      */
-    public ParsedData get(SelectionQueries query, Object...args) {
+    public JSONData get(SelectionQueries query, Object...args) {
         JSONParser parser = new JSONParser();
         return parser.parse(this.queryExecutor.perform(query, this.ontologyModel, args));
     }
@@ -70,10 +73,6 @@ public class OntologyController {
      */
     public boolean isOntologyConsistent() {
         ValidityReport validity = this.ontologyModel.validate();
-        for (Iterator<ValidityReport.Report> iter = validity.getReports(); iter.hasNext(); ) {
-            ValidityReport.Report report = iter.next();
-            System.out.println(report);
-        }
         return validity.isValid();
     }
 

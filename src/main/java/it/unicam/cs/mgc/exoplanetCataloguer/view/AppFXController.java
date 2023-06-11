@@ -1,6 +1,8 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.view;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.controller.Controller;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.renders.DataRenderer;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.renders.PlanetListRenderer;
 import javafx.fxml.FXML;
 import javafx.event.Event;
 import javafx.scene.control.Label;
@@ -29,9 +31,9 @@ public class AppFXController {
 
     public void initialize() {
         ontologyStatus.setText(this.controller.getOntologyStatus());
-        this.planetDetailView.setVisible(false);
-        //this.controller.getAllPlanets();
-        // render all the planets on the list
+        planetDetailView.setVisible(false);
+        DataRenderer<ListView<String>> renderer = new PlanetListRenderer();
+        renderer.render(controller.getAllPlanets(), planetsList);
     }
 
     @FXML
@@ -48,7 +50,11 @@ public class AppFXController {
 
     @FXML
     private void handleKeyTypedOnSearchBar(Event event) {
-        System.out.println(planetSearchBar.getCharacters());
-        // SEARCH QUERY ...
+        String searchedText = planetSearchBar.getCharacters().toString();
+        if(!searchedText.isEmpty()) {
+            System.out.println("Searching " + searchedText);
+            DataRenderer<ListView<String>> renderer = new PlanetListRenderer();
+            renderer.render(controller.searchPlanet(searchedText), planetsList);
+        }
     }
 }

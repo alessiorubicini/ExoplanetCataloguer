@@ -118,7 +118,7 @@
                       <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
                     </textFill>
                   </Label>
-                        <TextField id="planetSearchBar" fx:id="planetSearchBar" prefHeight="25.0" prefWidth="240.0" promptText="Search planets..." GridPane.rowIndex="1" />
+                        <TextField id="planetSearchBar" fx:id="planetSearchBar" onKeyTyped="#handleKeyTypedOnSearchBar" prefHeight="25.0" prefWidth="240.0" promptText="Search planets..." GridPane.rowIndex="1" />
                         <ListView id="planetsList" fx:id="planetsList" onMouseClicked="#handleClickOnPlanet" prefHeight="454.0" prefWidth="240.0" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>

@@ -1,5 +1,6 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,4 +22,9 @@ public class JSONData implements ParsedData {
     public String getProperty(String property) {
         return this.data.get(property);
     }
+
+    public Collection<String> getAllValues() {
+        return this.data.values();
+    }
+
 }
