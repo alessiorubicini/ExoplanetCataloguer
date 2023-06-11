@@ -17,13 +17,13 @@ public interface QueryExecutor {
     QueryExecution perform(SelectionQueries query, Model model);
 
     /**
-     * Performs a Sparql selection query on the given model
+     * Performs a Sparql selection query that takes parameters on the given model
      * @param query the query to perform
-     * @param parameter the parameter for the query
      * @param model the target of the query
+     * @param args the arguments for the query
      * @return an iterator over a JSON collection of ontology statements
      */
-    QueryExecution perform(SelectionQueries query, String parameter, Model model);
+    QueryExecution perform(SelectionQueries query, Model model, Object... args);
 
     /**
      * Performs a Sparql update query on the given model

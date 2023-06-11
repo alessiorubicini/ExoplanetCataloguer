@@ -39,8 +39,8 @@ public class OntologyController {
      * @param query the data
      * @return the data chunk result of the query
      */
-    public AppData get(SelectionQueries query) {
-        SparqlToJSON parser = new SparqlToJSON();
+    public ParsedData get(SelectionQueries query) {
+        JSONParser parser = new JSONParser();
         return parser.parse(this.queryExecutor.perform(query, this.ontologyModel));
     }
 
@@ -50,9 +50,9 @@ public class OntologyController {
      * @param parameter the parameter for the query
      * @return the data chunk result of the query
      */
-    public AppData get(SelectionQueries query, String parameter) {
-        SparqlToJSON parser = new SparqlToJSON();
-        return parser.parse(this.queryExecutor.perform(query, parameter, this.ontologyModel));
+    public ParsedData get(SelectionQueries query, Object...args) {
+        JSONParser parser = new JSONParser();
+        return parser.parse(this.queryExecutor.perform(query, this.ontologyModel, args));
     }
 
     /**

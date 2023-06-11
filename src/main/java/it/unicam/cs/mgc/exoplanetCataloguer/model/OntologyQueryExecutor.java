@@ -13,8 +13,8 @@ public class OntologyQueryExecutor implements QueryExecutor {
         return QueryExecutionFactory.create(queryToPerform, model);
     }
 
-    public QueryExecution perform(SelectionQueries query, String parameter, Model model) {
-        Query queryToPerform = QueryFactory.create(query.getQueryString(parameter));
+    public QueryExecution perform(SelectionQueries query, Model model, Object...args) {
+        Query queryToPerform = QueryFactory.create(query.getQueryString(args));
         return QueryExecutionFactory.create(queryToPerform, model);
     }
 

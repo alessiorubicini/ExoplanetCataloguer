@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.event.Event;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * JavaFX Controller for the application.
@@ -17,9 +18,15 @@ public class AppFXController {
     private ListView<String> planetsList;
 
     @FXML
-    private TextField planetsSearchBar;
+    private TextField planetSearchBar;
+
+    @FXML
+    private AnchorPane planetDetailView;
 
     public void initialize() {
+        this.planetDetailView.setVisible(false);
+        //this.controller.getAllPlanets();
+        // render all the planets on the list
     }
 
     @FXML
@@ -30,11 +37,13 @@ public class AppFXController {
         // QUERY DETAILS
 
         // AND SHOW VIEW
+        // render all the properties
+        this.planetDetailView.setVisible(true);
     }
 
     @FXML
     private void handleKeyTypedOnSearchBar(Event event) {
-        System.out.println(planetsSearchBar.getCharacters());
+        System.out.println(planetSearchBar.getCharacters());
         // SEARCH QUERY ...
     }
 }
