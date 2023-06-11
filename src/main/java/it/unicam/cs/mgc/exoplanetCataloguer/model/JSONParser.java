@@ -3,6 +3,9 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
 import org.apache.jena.atlas.json.JsonObject;
 import org.apache.jena.atlas.json.JsonValue;
 import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 import java.util.*;
 
@@ -13,18 +16,28 @@ public class JSONParser implements DataParser {
 
     public JSONData parse(QueryExecution queryExecution) {
         Map<String, String> data = new HashMap<>();
-        Iterator<JsonObject> json = queryExecution.execJsonItems();
-        while (json.hasNext()) {
-            JsonObject jsonObject = json.next();
-            String key = jsonObject.get("label").toString().replaceAll("\"", "");
-            String value = jsonObject.get("value").toString();
-            JsonValue unitOfMeasure = jsonObject.get("unitOfMeasure");
-            if(unitOfMeasure != null && !unitOfMeasure.toString().isEmpty()) {
-                value = value + " " + unitOfMeasure;
+        ResultSet results = queryExecution.execSelect() ;
+        while(results.hasNext()) {
+            QuerySolution statement = results.nextSolution();
+            String label = this.parseNode(statement.get("label"));
+            String value = this.parseNode(statement.get("value"));
+            String unitOfMeasure = this.parseNode(statement.get("unitOfMeasure"));
+            if(!unitOfMeasure.isEmpty()) {
+                value = value + unitOfMeasure;
             }
-            data.put(key, value);
+            data.put(label, value);
         }
         return new JSONData(data);
+    }
+
+    private String parseNode(RDFNode node) {
+        if(node == null) {
+             return "";
+        } else if(node.isResource()) {
+            return node.asResource().getURI().toString();
+        } else {
+            return node.asLiteral().getString();
+        }
     }
 
 }

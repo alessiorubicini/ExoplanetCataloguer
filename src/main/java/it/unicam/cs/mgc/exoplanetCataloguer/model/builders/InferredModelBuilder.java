@@ -2,7 +2,6 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.builders;
 
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.Reasoner;
-import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.ValidityReport;
 
 import java.util.concurrent.CompletableFuture;

@@ -2,16 +2,9 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.InferredModelBuilder;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
-import org.apache.jena.ontology.OntModel;
-import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
-import org.apache.jena.reasoner.ValidityReport;
-import org.apache.jena.util.FileManager;
 
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -31,7 +24,6 @@ public class OntologyController {
         futureInferredModel.thenAccept(inferredModel -> {
             this.model = inferredModel;
             this.inferredModelReady = true;
-            System.out.println("Inferred model ready.");
         });
     }
 
