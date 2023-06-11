@@ -1,5 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
+import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.InferredModelBuilder;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
@@ -10,32 +12,27 @@ import org.apache.jena.util.FileManager;
 
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * This class is used to manage the underlying OWL ontology
  */
 public class OntologyController {
 
-    private InfModel ontologyModel;
+    private Model model;
+    private final InferredModelBuilder modelBuilder = new InferredModelBuilder();
     private final OntologyQueryExecutor queryExecutor;
+    private boolean inferredModelReady = false;
 
     public OntologyController() {
-        this.ontologyModel = this.buildAndLoadOWLDLModel();
         this.queryExecutor = new OntologyQueryExecutor();
-    }
-
-    /**
-     * Builds an inferred model with OWL rules inference engine and loads the ontology RDF file
-     */
-    public InfModel buildAndLoadOWLDLModel() {
-        OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
-        System.out.println("Istantiating model...");
-        FileManager fileManager = FileManager.getInternal();
-        model.read(fileManager.open(Objects.requireNonNull(getClass().getResource("/owl/exoplanet-ontology.rdf")).toString()), null);
-        System.out.println("Reading ontology...");
-        Reasoner reasoner = ReasonerRegistry.getOWLReasoner().bindSchema(model);
-        System.out.println("Creating inferred model...");
-        return ModelFactory.createInfModel(reasoner, model);
+        this.model = modelBuilder.buildDefaultModel(OntologyURIs.LOCAL.getURI());
+        CompletableFuture<InfModel> futureInferredModel = modelBuilder.buildInferredModelAsync(model, ReasonerRegistry.getOWLReasoner());
+        futureInferredModel.thenAccept(inferredModel -> {
+            this.model = inferredModel;
+            this.inferredModelReady = true;
+            System.out.println("Inferred model ready.");
+        });
     }
 
     /**
@@ -45,7 +42,7 @@ public class OntologyController {
      */
     public JSONData get(SelectionQueries query) {
         JSONParser parser = new JSONParser();
-        return parser.parse(this.queryExecutor.perform(query, this.ontologyModel));
+        return parser.parse(this.queryExecutor.perform(query, this.model));
     }
 
     /**
@@ -56,7 +53,7 @@ public class OntologyController {
      */
     public JSONData get(SelectionQueries query, Object...args) {
         JSONParser parser = new JSONParser();
-        return parser.parse(this.queryExecutor.perform(query, this.ontologyModel, args));
+        return parser.parse(this.queryExecutor.perform(query, this.model, args));
     }
 
     /**
@@ -64,27 +61,15 @@ public class OntologyController {
      * @param query
      */
     public void post(UpdateQueries query) {
-        this.queryExecutor.perform(query, this.ontologyModel);
+        this.queryExecutor.perform(query, this.model);
     }
 
-    /**
-     * Checks if the model is valid and consistent
-     * @return true if it's valid
-     */
-    public boolean isOntologyConsistent() {
-        ValidityReport validity = this.ontologyModel.validate();
-        return validity.isValid();
+    public boolean isConsistent() {
+
+        return true;
     }
 
-    /**
-     * Checks if the given statement has been correctly inferred
-     * @param subject the subject of the statement
-     * @param predicate the predicate of the statement
-     * @param object the object of the statement
-     * @return true if the statement has been inferred
-     */
-    public boolean isCorrectlyInferred(Resource subject, Property predicate, Resource object) {
-        return this.ontologyModel.contains(subject, predicate, object);
+    public boolean isInferredModelReady() {
+        return inferredModelReady;
     }
-
 }

@@ -21,6 +21,9 @@ public class AppFXController {
     private Label ontologyStatus;
 
     @FXML
+    private Label inferredModelStatus;
+
+    @FXML
     private ListView<String> planetsList;
 
     @FXML
@@ -31,6 +34,7 @@ public class AppFXController {
 
     public void initialize() {
         ontologyStatus.setText(this.controller.getOntologyStatus());
+        inferredModelStatus.setText(controller.isInferredModelReady());
         planetDetailView.setVisible(false);
         DataRenderer<ListView<String>> renderer = new PlanetListRenderer();
         renderer.render(controller.getAllPlanets(), planetsList);

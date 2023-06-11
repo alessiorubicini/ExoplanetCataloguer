@@ -7,7 +7,8 @@ public enum OntologyURIs {
     RDF("http://www.w3.org/1999/02/22-rdf-syntax-ns#"),
     RDFS("http://www.w3.org/2000/01/rdf-schema#"),
     EXO("https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#"),
-    OM("http://www.ontology-of-units-of-measure.org/resource/om-2/");
+    OM("http://www.ontology-of-units-of-measure.org/resource/om-2/"),
+    LOCAL("/owl/exoplanet-ontology.rdf");
 
     private final String URI;
 

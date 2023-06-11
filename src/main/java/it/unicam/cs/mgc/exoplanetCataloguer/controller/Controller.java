@@ -9,18 +9,20 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.SelectionQueries;
  */
 public class Controller {
 
-    OntologyController ontController;
+    OntologyController ontology;
 
     public Controller() {
-        this.ontController = new OntologyController();
+        this.ontology = new OntologyController();
     }
 
     public String getOntologyStatus() {
-        if(this.ontController.isOntologyConsistent()) {
-            return "Ontology consistent ✓";
-        } else {
-            return "Inconsistent ontology ╳";
-        }
+        if(ontology.isConsistent()) return "Ontology consistent ✓";
+        else return "Inconsistent ontology ╳";
+    }
+
+    public String isInferredModelReady() {
+        if(ontology.isInferredModelReady()) return "Model inferred ✓";
+        else return "Performing inference...";
     }
 
     /**
@@ -28,7 +30,7 @@ public class Controller {
      * @return data containing the list of planets
      */
     public ParsedData getAllPlanets() {
-        return ontController.get(SelectionQueries.PLANETS_LIST);
+        return ontology.get(SelectionQueries.PLANETS_LIST);
     }
 
     /**
@@ -37,11 +39,11 @@ public class Controller {
      * @return data containing the details
      */
     public ParsedData getPlanetDetails(String planetName) {
-        return ontController.get(SelectionQueries.PLANET_DETAILS, planetName);
+        return ontology.get(SelectionQueries.PLANET_DETAILS, planetName);
     }
 
     public ParsedData searchPlanet(String planetName) {
-        return ontController.get(SelectionQueries.SEARCH_PLANET, planetName);
+        return ontology.get(SelectionQueries.SEARCH_PLANET, planetName);
     }
 
 }
