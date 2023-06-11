@@ -18,6 +18,10 @@ public interface SPARQLQueries {
      */
     String getQueryString(Object... args);
 
+    static String getOntologyURI() {
+        return "https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#";
+    }
+
     /**
      * Get the SPARQL prefixes necessary for queries
      * @return a string containing SPARQL prefixes
@@ -32,5 +36,5 @@ public interface SPARQLQueries {
                 PREFIX om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
                 PREFIX exo: <https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#>
                 """;
-    }
+     }
 }

@@ -3,6 +3,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.view;
 import it.unicam.cs.mgc.exoplanetCataloguer.controller.Controller;
 import javafx.fxml.FXML;
 import javafx.event.Event;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -15,6 +16,9 @@ public class AppFXController {
     private final Controller controller = new Controller();
 
     @FXML
+    private Label ontologyStatus;
+
+    @FXML
     private ListView<String> planetsList;
 
     @FXML
@@ -24,6 +28,7 @@ public class AppFXController {
     private AnchorPane planetDetailView;
 
     public void initialize() {
+        ontologyStatus.setText(this.controller.getOntologyStatus());
         this.planetDetailView.setVisible(false);
         //this.controller.getAllPlanets();
         // render all the planets on the list

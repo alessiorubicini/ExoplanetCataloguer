@@ -6,15 +6,15 @@ import java.util.Map;
 /**
  * This class is used to structure and expose the parsed JSON data from a SPARQL query.
  */
-public class DataAsJSON implements ParsedData {
+public class JSONData implements ParsedData {
 
     Map<String, String> data;
 
-    public DataAsJSON() {
+    public JSONData() {
         this.data = new HashMap<>();
     }
 
-    public DataAsJSON(Map<String, String> data) {
+    public JSONData(Map<String, String> data) {
         this.data = data;
     }
 

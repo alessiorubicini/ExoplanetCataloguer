@@ -23,7 +23,7 @@ public class JSONParser implements DataParser {
             if(!unitOfMeasure.isEmpty()) value = value + " " + unitOfMeasure;
             data.put(key, value);
         }
-        return new DataAsJSON(data);
+        return new JSONData(data);
     }
 
 }

@@ -15,6 +15,14 @@ public class Controller {
         this.ontController = new OntologyController();
     }
 
+    public String getOntologyStatus() {
+        if(this.ontController.isOntologyConsistent()) {
+            return "Ontology consistent ✓";
+        } else {
+            return "Inconsistent ontology ╳";
+        }
+    }
+
     /**
      * Gets the list of planets in the ontology.
      * @return data containing the list of planets

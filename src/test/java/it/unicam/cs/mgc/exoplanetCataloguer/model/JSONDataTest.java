@@ -1,6 +1,4 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
-public class JSONParserTest {
-
-    
+public class JSONDataTest {
 }

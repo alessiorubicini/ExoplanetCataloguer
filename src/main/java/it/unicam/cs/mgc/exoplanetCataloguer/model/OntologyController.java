@@ -8,6 +8,7 @@ import org.apache.jena.reasoner.ReasonerRegistry;
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.util.FileManager;
 
+import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -19,19 +20,19 @@ public class OntologyController {
     private final OntologyQueryExecutor queryExecutor;
 
     public OntologyController() {
-        this.buildAndLoadOWLDLModel();
+        this.ontologyModel = this.buildAndLoadOWLDLModel();
         this.queryExecutor = new OntologyQueryExecutor();
     }
 
     /**
      * Builds an inferred model with OWL rules inference engine and loads the ontology RDF file
      */
-    public void buildAndLoadOWLDLModel() {
+    public InfModel buildAndLoadOWLDLModel() {
         OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RULE_INF);
         FileManager fileManager = FileManager.getInternal();
         model.read(fileManager.open(Objects.requireNonNull(getClass().getResource("/owl/exoplanet-ontology.rdf")).toString()), null);
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner().bindSchema(model);
-        this.ontologyModel = ModelFactory.createInfModel(reasoner, model);
+        return ModelFactory.createInfModel(reasoner, model);
     }
 
     /**
@@ -47,7 +48,7 @@ public class OntologyController {
     /**
      * Gets data from the ontology model
      * @param query the data
-     * @param parameter the parameter for the query
+     * @param args the parameter for the query
      * @return the data chunk result of the query
      */
     public ParsedData get(SelectionQueries query, Object...args) {
@@ -69,6 +70,10 @@ public class OntologyController {
      */
     public boolean isOntologyConsistent() {
         ValidityReport validity = this.ontologyModel.validate();
+        for (Iterator<ValidityReport.Report> iter = validity.getReports(); iter.hasNext(); ) {
+            ValidityReport.Report report = iter.next();
+            System.out.println(report);
+        }
         return validity.isValid();
     }
 
