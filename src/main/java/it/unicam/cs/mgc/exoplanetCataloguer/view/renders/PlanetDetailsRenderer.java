@@ -24,6 +24,9 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
             if(node.getId().equals("planetDetailLabels")) {
                 this.renderDataInVBox(node, data);
             }
+            if(node.getId().equals("comment")) {
+                this.renderDataOnLabel(node, data);
+            }
         }
     }
 
@@ -39,10 +42,10 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
 
     private void renderDataOnLabel(Node node, ParsedData data) {
         Label label = (Label) node;
-        String propertyName = data.getProperty(StringFormatter.camelCaseToSpacedString(label.getId()));
+        String propertyName = StringFormatter.camelCaseToSpacedString(label.getId());
         String property = data.getProperty(propertyName);
         if(property != null) {
-            if(propertyName.equals("name")) {
+            if(propertyName.equals("name") || property.equals("comment")) {
                 label.setText(property);
             } else {
                 label.setText(propertyName + ": " + property);
