@@ -346,6 +346,16 @@
     
 
 
+    <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#description -->
+
+    <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#description">
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth -->
 
     <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#distanceFromEarth">
@@ -477,7 +487,7 @@
     <!-- https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod -->
 
     <owl:DatatypeProperty rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#rotationalPeriod">
-        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Planet"/>
+        <rdfs:domain rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#CelestialBody"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -1775,6 +1785,7 @@
     <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri">
         <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
         <exoplanet-ontology:distanceFromEarth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.2465</exoplanet-ontology:distanceFromEarth>
+        <exoplanet-ontology:name>Proxima Centauri</exoplanet-ontology:name>
         <exoplanet-ontology:solarMasses rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1221</exoplanet-ontology:solarMasses>
         <exoplanet-ontology:solarRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.1542</exoplanet-ontology:solarRadius>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3042.0</exoplanet-ontology:surfaceTemperature>
@@ -1796,6 +1807,7 @@
         <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.173</exoplanet-ontology:PlanetMass>
         <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">10.062394</exoplanet-ontology:gravity>
         <exoplanet-ontology:imageURL>https://isaacscienceblog.files.wordpress.com/2016/09/proxima-b-habitable-zone-exoplanet-illustration-2-phl-upl.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:name>Proxima Centauri B</exoplanet-ontology:name>
         <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02</exoplanet-ontology:orbitalEccentricity>
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.1843</exoplanet-ontology:orbitalPeriod>
         <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</exoplanet-ontology:semiMajorAxis>
@@ -1815,6 +1827,7 @@
         <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#ProximaCentauri"/>
         <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.26</exoplanet-ontology:PlanetMass>
         <exoplanet-ontology:imageURL>https://upload.wikimedia.org/wikipedia/commons/6/67/Artist’s_impression_of_Proxima_d_%28close-up%29.jpg</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:name>Proxima Centauri D</exoplanet-ontology:name>
         <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</exoplanet-ontology:orbitalEccentricity>
         <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.04</exoplanet-ontology:orbitalInclination>
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.122</exoplanet-ontology:orbitalPeriod>
@@ -1928,14 +1941,15 @@
 
     <owl:NamedIndividual rdf:about="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1">
         <rdf:type rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Star"/>
+        <exoplanet-ontology:description>A small, ultra-cool dwarf star located approximately 39 light-years away from Earth, in the constellation Aquarius. It gained significant attention in 2017 when a system of seven Earth-sized exoplanets was discovered orbiting around it.</exoplanet-ontology:description>
         <exoplanet-ontology:distanceFromEarth rdf:datatype="http://www.w3.org/2001/XMLSchema#double">39.5</exoplanet-ontology:distanceFromEarth>
         <exoplanet-ontology:imageURL>https://assets.weforum.org/editor/eUKigKpWTrnoCZzdRm0i8OwC75UOsIY13RtUZsaCWjM.JPG</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:name>Trappist-1</exoplanet-ontology:name>
         <exoplanet-ontology:rotationalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.3</exoplanet-ontology:rotationalPeriod>
         <exoplanet-ontology:solarMasses rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.086</exoplanet-ontology:solarMasses>
         <exoplanet-ontology:solarRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.119</exoplanet-ontology:solarRadius>
         <exoplanet-ontology:surfacePressure rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2628.0</exoplanet-ontology:surfacePressure>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2550.0</exoplanet-ontology:surfaceTemperature>
-        <om-2:longcomment xml:lang="en">A small, ultra-cool dwarf star located approximately 39 light-years away from Earth, in the constellation Aquarius. It gained significant attention in 2017 when a system of seven Earth-sized exoplanets was discovered orbiting around it. These exoplanets, collectively known as the Trappist-1 system, sparked great interest in the scientific community due to their potential for supporting liquid water and, therefore, the possibility of harboring life.</om-2:longcomment>
         <rdfs:label>Trappist-1</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1952,14 +1966,15 @@
         <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
         <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1"/>
         <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.389</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:description>Trappist-1d is one of the seven exoplanets that orbit the Trappist-1 star, located approximately 39 light-years away from Earth. It&apos;s an Earth-sized planet, meaning it has a similar size to our own planet. It resides within the habitable zone of its star, also known as the Goldilocks zone, where conditions may be just right for liquid water to exist on its surface. This is an important factor in the search for potentially habitable worlds.</exoplanet-ontology:description>
         <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.737</exoplanet-ontology:gravity>
         <exoplanet-ontology:imageURL>https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/TRAPPIST-1d_Artist%27s_Impression.png/800px-TRAPPIST-1d_Artist%27s_Impression.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:name>Trappist-1d</exoplanet-ontology:name>
         <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.00837</exoplanet-ontology:orbitalEccentricity>
         <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89.87</exoplanet-ontology:orbitalInclination>
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">4.05</exoplanet-ontology:orbitalPeriod>
         <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.022</exoplanet-ontology:semiMajorAxis>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">267.0</exoplanet-ontology:surfaceTemperature>
-        <om-2:longcomment xml:lang="en">Trappist-1d is one of the seven exoplanets that orbit the Trappist-1 star, located approximately 39 light-years away from Earth. It&apos;s an Earth-sized planet, meaning it has a similar size to our own planet. It resides within the habitable zone of its star, also known as the Goldilocks zone, where conditions may be just right for liquid water to exist on its surface. This is an important factor in the search for potentially habitable worlds.</om-2:longcomment>
         <rdfs:label>Trappist-1d</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1976,14 +1991,15 @@
         <exoplanet-ontology:isMainlyComposedOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Silicon"/>
         <exoplanet-ontology:isSatelliteOf rdf:resource="https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#Trappist-1"/>
         <exoplanet-ontology:PlanetMass rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.692</exoplanet-ontology:PlanetMass>
+        <exoplanet-ontology:description>Trappist-1e is an Earth-sized exoplanet, situated approximately 39 light-years away from Earth, that offers unique characteristics that make it a captivating subject of study. Its proximity to its host star places it within the habitable zone, the region where conditions may allow for the existence of liquid water on its surface.</exoplanet-ontology:description>
         <exoplanet-ontology:gravity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">9.12</exoplanet-ontology:gravity>
         <exoplanet-ontology:imageURL>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/TRAPPIST-1e_Artist%27s_Impression.png/800px-TRAPPIST-1e_Artist%27s_Impression.png</exoplanet-ontology:imageURL>
+        <exoplanet-ontology:name>Trappist-1e</exoplanet-ontology:name>
         <exoplanet-ontology:orbitalEccentricity rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</exoplanet-ontology:orbitalEccentricity>
         <exoplanet-ontology:orbitalInclination rdf:datatype="http://www.w3.org/2001/XMLSchema#double">89.86</exoplanet-ontology:orbitalInclination>
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</exoplanet-ontology:orbitalPeriod>
         <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.028</exoplanet-ontology:semiMajorAxis>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">250.0</exoplanet-ontology:surfaceTemperature>
-        <om-2:longcomment xml:lang="en">Trappist-1e is an Earth-sized exoplanet, situated approximately 39 light-years away from Earth, that offers unique characteristics that make it a captivating subject of study. Its proximity to its host star places it within the habitable zone, the region where conditions may allow for the existence of liquid water on its surface.</om-2:longcomment>
         <rdfs:label>Trappist-1e</rdfs:label>
     </owl:NamedIndividual>
     

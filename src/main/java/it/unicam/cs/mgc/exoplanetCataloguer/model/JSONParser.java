@@ -23,7 +23,7 @@ public class JSONParser implements DataParser {
             String value = this.parseNodeToString(statement.get("value"));
             String unitOfMeasure = this.parseNodeToString(statement.get("unitOfMeasure"));
             if(!unitOfMeasure.isEmpty()) {
-                value = value + unitOfMeasure;
+                value = value + " " + unitOfMeasure;
             }
             data.put(label, value);
         }

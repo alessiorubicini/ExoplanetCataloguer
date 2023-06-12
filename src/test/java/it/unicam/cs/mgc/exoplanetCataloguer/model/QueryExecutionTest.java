@@ -28,7 +28,7 @@ public class QueryExecutionTest  {
     public void queryAllPlanets() {
         JSONData data = ontology.get(SelectionQueries.PLANETS_LIST);
         Collection<String> planets = data.getAllValues();
-        assertTrue(planets.size() != 0);
+        assertEquals(4, planets.size());
     }
 
     @Test
