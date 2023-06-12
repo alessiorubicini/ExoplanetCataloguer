@@ -1948,8 +1948,7 @@
         <exoplanet-ontology:rotationalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">3.3</exoplanet-ontology:rotationalPeriod>
         <exoplanet-ontology:solarMasses rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.086</exoplanet-ontology:solarMasses>
         <exoplanet-ontology:solarRadius rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.119</exoplanet-ontology:solarRadius>
-        <exoplanet-ontology:surfacePressure rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2628.0</exoplanet-ontology:surfacePressure>
-        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2550.0</exoplanet-ontology:surfaceTemperature>
+        <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">2628.0</exoplanet-ontology:surfaceTemperature>
         <rdfs:label>Trappist-1</rdfs:label>
     </owl:NamedIndividual>
     
