@@ -16,10 +16,10 @@ public interface ModelBuilder {
 
     /**
      * Creates a basic RDF model from a specific file.
-     * @param filename the filename of th efile
+     * @param filenames the names of the files
      * @return the built model
      */
-    Model buildDefaultModel(String filename);
+    Model buildDefaultModel(String...filenames);
 
     /**
      * Creates an RDF model that supports ontology reasoning using specified rule-based reasoning and subtyping rules
@@ -32,10 +32,10 @@ public interface ModelBuilder {
      * Creates an RDF model that supports ontology reasoning using specified rule-based reasoning and subtyping rules
      * from a specific file.
      * @param modelSpecification the model specification
-     * @param filename the name of the file
+     * @param filenames the names of the files
      * @return the built model
      */
-    Model buildOntologyModel(OntModelSpec modelSpecification, String filename);
+    Model buildOntologyModel(OntModelSpec modelSpecification, String...filenames);
 
 
 

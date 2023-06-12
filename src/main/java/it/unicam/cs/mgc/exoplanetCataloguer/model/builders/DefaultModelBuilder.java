@@ -19,9 +19,11 @@ public class DefaultModelBuilder implements ModelBuilder {
         return ModelFactory.createDefaultModel();
     }
 
-    public Model buildDefaultModel(String filename) {
+    public Model buildDefaultModel(String...filenames) {
         Model model = ModelFactory.createDefaultModel();
-        model.read(fileManager.open(Objects.requireNonNull(getClass().getResource(filename)).toString()), null);
+        for(String filename: filenames) {
+            model.read(fileManager.open(Objects.requireNonNull(getClass().getResource(filename)).toString()), null);
+        }
         return model;
     }
 
@@ -30,9 +32,11 @@ public class DefaultModelBuilder implements ModelBuilder {
         return model;
     }
 
-    public Model buildOntologyModel(OntModelSpec modelSpecification, String filename) {
+    public Model buildOntologyModel(OntModelSpec modelSpecification, String...filenames) {
         Model model = ModelFactory.createOntologyModel(modelSpecification);
-        model.read(fileManager.open(Objects.requireNonNull(getClass().getResource(filename)).toString()), null);
+        for(String filename: filenames) {
+            model.read(fileManager.open(Objects.requireNonNull(getClass().getResource(filename)).toString()), null);
+        }
         return model;
     }
 }

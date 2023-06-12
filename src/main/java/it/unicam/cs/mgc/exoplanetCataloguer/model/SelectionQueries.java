@@ -9,7 +9,14 @@ public enum SelectionQueries implements SPARQLQueries {
     SEARCH_PLANET("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . FILTER(STRSTARTS(?value, \"%s\")) }"),
     MISSION_DETAILS(""),
     RESEARCHER_DETAILS(""),
-    STAR_DETAILS("");
+    STAR_DETAILS(""),
+    TEST("SELECT ?label ?value\n" +
+            "WHERE {\n" +
+            "  ?planet rdf:type exo:Planet .\n" +
+            "  ?planet rdfs:label \"Trappist-1d\" .\n" +
+            "  ?planet ?label ?value .\n" +
+            "  \n" +
+            "}\n");
 
     private final String query;
 

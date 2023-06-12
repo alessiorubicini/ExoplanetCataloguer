@@ -39,14 +39,21 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
 
     private void renderDataOnLabel(Node node, ParsedData data) {
         Label label = (Label) node;
-        String property = StringCases.camelCaseToSpacedString(label.getId());
-        label.setText(property + ": " + data.getProperty(property));
+        String propertyName = data.getProperty(StringCases.camelCaseToSpacedString(label.getId()));
+        String property = data.getProperty(propertyName);
+        if(property != null) {
+            if(propertyName.equals("name")) {
+                label.setText(property);
+            } else {
+                label.setText(propertyName + ": " + property);
+            }
+        }
     }
 
     private void renderPlanetImage(Node node, String url) {
         ImageView planetImageView = (ImageView) node;
-        planetImageView.setPreserveRatio(true);
         Image planetImage = new Image(url, true);
+        planetImageView.setPreserveRatio(true);
         planetImageView.setFitWidth(300);
         planetImageView.setFitHeight(300);
         planetImageView.setImage(planetImage);

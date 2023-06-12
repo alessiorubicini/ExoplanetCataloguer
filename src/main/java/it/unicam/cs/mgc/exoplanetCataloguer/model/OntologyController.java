@@ -5,8 +5,6 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.ReasonerRegistry;
 
-import java.util.concurrent.CompletableFuture;
-
 /**
  * This class is used to manage the underlying OWL ontology
  */
@@ -15,16 +13,16 @@ public class OntologyController {
     private Model model;
     private final InferredModelBuilder modelBuilder = new InferredModelBuilder();
     private final OntologyQueryExecutor queryExecutor;
-    private boolean inferredModelReady = false;
+    private boolean hasBeenInferred = false;
 
     public OntologyController() {
         this.queryExecutor = new OntologyQueryExecutor();
         this.model = modelBuilder.buildDefaultModel(OntologyURIs.LOCAL.getURI());
-        CompletableFuture<InfModel> futureInferredModel = modelBuilder.buildInferredModelAsync(model, ReasonerRegistry.getOWLReasoner());
-        futureInferredModel.thenAccept(inferredModel -> {
-            this.model = inferredModel;
-            this.inferredModelReady = true;
-        });
+        this.startInference();
+    }
+
+    public void startInference() {
+        this.model = modelBuilder.buildInferredModel(model, ReasonerRegistry.getOWLReasoner());
     }
 
     /**
@@ -61,7 +59,7 @@ public class OntologyController {
         return true;
     }
 
-    public boolean isInferredModelReady() {
-        return inferredModelReady;
+    public boolean isHasBeenInferred() {
+        return hasBeenInferred;
     }
 }

@@ -37,9 +37,9 @@ public class JSONParser implements DataParser {
      */
     private String parseNodeToString(RDFNode node) {
         if(node == null) {
-             return "";
+             return "null";
         } else if(node.isResource()) {
-            return node.asResource().getURI().toString();
+            return node.asResource().getURI();
         } else {
             return node.asLiteral().getString();
         }

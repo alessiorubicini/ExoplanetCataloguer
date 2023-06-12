@@ -21,7 +21,7 @@ public class Controller {
     }
 
     public String isInferredModelReady() {
-        if(ontology.isInferredModelReady()) return "Model inferred ✓";
+        if(ontology.isHasBeenInferred()) return "Model inferred ✓";
         else return "Performing inference...";
     }
 
