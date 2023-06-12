@@ -1,9 +1,19 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
 
 /**
- * Utility class to transform a string from camel case to white spaced and vice versa
+ * Utility class to format strings in specific ways
  */
-public class StringCases {
+public class StringFormatter {
+
+    public static String removeUriPrefix(String uri) {
+        if(uri != null) {
+            int index = uri.indexOf('#');
+            if (index != -1) return uri.substring(index + 1);
+            else return uri;
+        } else {
+            return "null";
+        }
+    }
 
     public static String camelCaseToSpacedString(String camelCase) {
         StringBuilder spacedString = new StringBuilder();

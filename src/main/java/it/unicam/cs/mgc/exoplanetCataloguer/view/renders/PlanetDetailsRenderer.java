@@ -1,7 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.view.renders;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.ParsedData;
-import it.unicam.cs.mgc.exoplanetCataloguer.model.util.StringCases;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.StringFormatter;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -39,7 +39,7 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
 
     private void renderDataOnLabel(Node node, ParsedData data) {
         Label label = (Label) node;
-        String propertyName = data.getProperty(StringCases.camelCaseToSpacedString(label.getId()));
+        String propertyName = data.getProperty(StringFormatter.camelCaseToSpacedString(label.getId()));
         String property = data.getProperty(propertyName);
         if(property != null) {
             if(propertyName.equals("name")) {

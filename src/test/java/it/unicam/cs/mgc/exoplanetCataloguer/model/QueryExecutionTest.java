@@ -49,15 +49,4 @@ public class QueryExecutionTest  {
         }
     }
 
-    @Test
-    public void test() {
-        JSONData data = ontology.get(SelectionQueries.TEST);
-        assertFalse(data.getAllValues().isEmpty());
-        Iterator<Map.Entry<String, String>> iterator = data.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry<String, String> entry = iterator.next();
-            System.out.println(entry.getKey() + ":  " + entry.getValue());
-        }
-    }
-
 }

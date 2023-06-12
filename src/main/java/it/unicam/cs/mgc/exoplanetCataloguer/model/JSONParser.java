@@ -1,11 +1,14 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.StringFormatter;
 import org.apache.jena.atlas.json.JsonObject;
 import org.apache.jena.atlas.json.JsonValue;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.RDFS;
 
 import java.util.*;
 
@@ -16,30 +19,31 @@ public class JSONParser implements DataParser {
 
     public JSONData parse(QueryExecution queryExecution) {
         Map<String, String> data = new HashMap<>();
-        ResultSet results = queryExecution.execSelect() ;
+        ResultSet results = queryExecution.execSelect();
         while(results.hasNext()) {
             QuerySolution statement = results.nextSolution();
             String label = this.parseNodeToString(statement.get("label"));
             String value = this.parseNodeToString(statement.get("value"));
-            String unitOfMeasure = this.parseNodeToString(statement.get("unitOfMeasure"));
-            if(!unitOfMeasure.isEmpty()) {
-                value = value + " " + unitOfMeasure;
+            if(data.containsKey(label)) {
+                data.put(label, data.get(label) + ", " + value);
+            } else {
+                data.put(label, value);
             }
-            data.put(label, value);
         }
         return new JSONData(data);
     }
 
     /**
-     * Local utility function to correctly parse a RDF node to a string
+     * Correctly parse a RDF node to a string
      * @param node the RDF node to parse
-     * @return a string representing the value of the node. An empty string if the node is null.
+     * @return a string representing the node. An empty string if the node is null.
      */
     private String parseNodeToString(RDFNode node) {
-        if(node == null) {
-             return "null";
-        } else if(node.isResource()) {
-            return node.asResource().getURI();
+        if(node == null) return "";
+        if(node.isResource()) {
+            Resource res = node.asResource();
+            if(res.getProperty(RDFS.label) == null) return StringFormatter.removeUriPrefix(res.getURI());
+            else return res.getProperty(RDFS.label).getString();
         } else {
             return node.asLiteral().getString();
         }
