@@ -19,9 +19,9 @@ public class JSONParser implements DataParser {
         ResultSet results = queryExecution.execSelect() ;
         while(results.hasNext()) {
             QuerySolution statement = results.nextSolution();
-            String label = this.parseNode(statement.get("label"));
-            String value = this.parseNode(statement.get("value"));
-            String unitOfMeasure = this.parseNode(statement.get("unitOfMeasure"));
+            String label = this.parseNodeToString(statement.get("label"));
+            String value = this.parseNodeToString(statement.get("value"));
+            String unitOfMeasure = this.parseNodeToString(statement.get("unitOfMeasure"));
             if(!unitOfMeasure.isEmpty()) {
                 value = value + unitOfMeasure;
             }
@@ -30,7 +30,12 @@ public class JSONParser implements DataParser {
         return new JSONData(data);
     }
 
-    private String parseNode(RDFNode node) {
+    /**
+     * Local utility function to correctly parse a RDF node to a string
+     * @param node the RDF node to parse
+     * @return a string representing the value of the node. An empty string if the node is null.
+     */
+    private String parseNodeToString(RDFNode node) {
         if(node == null) {
              return "";
         } else if(node.isResource()) {

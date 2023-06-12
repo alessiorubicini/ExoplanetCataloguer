@@ -37,4 +37,6 @@ public interface ModelBuilder {
      */
     Model buildOntologyModel(OntModelSpec modelSpecification, String filename);
 
+
+
 }

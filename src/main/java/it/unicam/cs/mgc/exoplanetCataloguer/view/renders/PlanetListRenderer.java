@@ -1,4 +1,4 @@
-package it.unicam.cs.mgc.exoplanetCataloguer.model.renders;
+package it.unicam.cs.mgc.exoplanetCataloguer.view.renders;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.ParsedData;
 import javafx.collections.FXCollections;

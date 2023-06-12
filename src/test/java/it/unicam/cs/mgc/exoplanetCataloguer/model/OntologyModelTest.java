@@ -23,10 +23,4 @@ public class OntologyModelTest {
         assertNotNull(model);
     }
 
-    @Disabled
-    @Test
-    public void testStatementPresence() {
-        // contains...
-    }
-
 }

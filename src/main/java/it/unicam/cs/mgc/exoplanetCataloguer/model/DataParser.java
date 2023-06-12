@@ -11,7 +11,7 @@ public interface DataParser {
     /**
      * Parses the result from a SPARQL query execution to a chunk of data
      * @param queryExecution the SPARQL query execution
-     * @return the data chunk from the query result
+     * @return the parsed data from the query result
      */
     ParsedData parse(QueryExecution queryExecution);
 

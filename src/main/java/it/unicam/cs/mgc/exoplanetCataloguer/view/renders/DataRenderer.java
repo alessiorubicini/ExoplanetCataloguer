@@ -1,4 +1,4 @@
-package it.unicam.cs.mgc.exoplanetCataloguer.model.renders;
+package it.unicam.cs.mgc.exoplanetCataloguer.view.renders;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.ParsedData;
 import javafx.scene.Node;
@@ -10,9 +10,9 @@ import javafx.scene.Node;
 public interface DataRenderer<T extends Node> {
 
     /**
-     * Renders the given data on the elements in the pane
-     * @param data the data to be rendered
-     * @param control the FX element where to render the data
+     * Renders the given data on the given FX node
+     * @param data the data to render
+     * @param node the FX element to render the data to
      */
-    void render(ParsedData data, T control);
+    void render(ParsedData data, T node);
 }

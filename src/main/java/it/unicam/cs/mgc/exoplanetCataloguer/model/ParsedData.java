@@ -3,7 +3,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
 import java.util.Collection;
 
 /**
- * Classes implementing this interface are used to expose a dictionary-like data chunk regarding an entity
+ * Classes implementing this interface are used to expose dictionary-like data
  */
 public interface ParsedData {
 
@@ -14,6 +14,10 @@ public interface ParsedData {
      */
     String getProperty(String property);
 
+    /**
+     * Returns all the values from the data
+     * @return
+     */
     Collection<String> getAllValues();
 
 }

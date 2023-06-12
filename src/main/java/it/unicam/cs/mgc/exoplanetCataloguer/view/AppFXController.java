@@ -1,14 +1,14 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.view;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.controller.Controller;
-import it.unicam.cs.mgc.exoplanetCataloguer.model.renders.DataRenderer;
-import it.unicam.cs.mgc.exoplanetCataloguer.model.renders.PlanetListRenderer;
+import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetDetailsRenderer;
+import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetListRenderer;
 import javafx.fxml.FXML;
 import javafx.event.Event;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * JavaFX Controller for the application.
@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 public class AppFXController {
 
     private final Controller controller = new Controller();
+    private final PlanetListRenderer planetListRenderer = new PlanetListRenderer();
+    private final PlanetDetailsRenderer planetDetailsRenderer = new PlanetDetailsRenderer();
 
     @FXML
     private Label ontologyStatus;
@@ -30,35 +32,29 @@ public class AppFXController {
     private TextField planetSearchBar;
 
     @FXML
-    private AnchorPane planetDetailView;
+    private GridPane planetDetailView;
 
     public void initialize() {
         ontologyStatus.setText(this.controller.getOntologyStatus());
         inferredModelStatus.setText(controller.isInferredModelReady());
         planetDetailView.setVisible(false);
-        DataRenderer<ListView<String>> renderer = new PlanetListRenderer();
-        renderer.render(controller.getAllPlanets(), planetsList);
+        planetListRenderer.render(controller.getAllPlanets(), planetsList);
     }
 
     @FXML
     private void handleClickOnPlanet(Event event) {
         String selectedItem = planetsList.getSelectionModel().getSelectedItem();
-        System.out.println("Clicked planet: " + selectedItem);
-
-        // QUERY DETAILS
-
-        // AND SHOW VIEW
-        // render all the properties
+        planetDetailsRenderer.render(controller.getPlanetDetails(selectedItem), planetDetailView);
         this.planetDetailView.setVisible(true);
     }
 
     @FXML
     private void handleKeyTypedOnSearchBar(Event event) {
         String searchedText = planetSearchBar.getCharacters().toString();
-        if(!searchedText.isEmpty()) {
-            System.out.println("Searching " + searchedText);
-            DataRenderer<ListView<String>> renderer = new PlanetListRenderer();
-            renderer.render(controller.searchPlanet(searchedText), planetsList);
+        if(searchedText.isEmpty()) {
+            planetListRenderer.render(controller.getAllPlanets(), planetsList);
+        } else {
+            planetListRenderer.render(controller.searchPlanet(searchedText), planetsList);
         }
     }
 }
