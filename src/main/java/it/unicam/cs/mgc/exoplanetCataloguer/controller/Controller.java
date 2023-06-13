@@ -20,11 +20,6 @@ public class Controller {
         else return "Inconsistent ontology ╳";
     }
 
-    public String isInferredModelReady() {
-        if(ontology.isHasBeenInferred()) return "Model inferred ✓";
-        else return "Performing inference...";
-    }
-
     /**
      * Gets the list of planets in the ontology.
      * @return data containing the list of planets

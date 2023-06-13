@@ -59,7 +59,7 @@ public class OntologyController {
         return true;
     }
 
-    public boolean isHasBeenInferred() {
+    public boolean hasBeenInferred() {
         return hasBeenInferred;
     }
 }

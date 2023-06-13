@@ -65,5 +65,19 @@ public class StringFormatter {
 
         return camelCase.toString();
     }
+
+    public static String removeNullValues(String input) {
+        String[] values = input.split(",\\s*");
+        StringBuilder result = new StringBuilder();
+
+        for (String value : values) {
+            if (value.trim().equalsIgnoreCase("null")) {
+                continue;
+            }
+            result.append(value.trim()).append(" ");
+        }
+
+        return result.toString().trim();
+    }
 }
 

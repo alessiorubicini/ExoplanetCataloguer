@@ -23,7 +23,7 @@ public class JSONParser implements DataParser {
         while(results.hasNext()) {
             QuerySolution result = results.nextSolution();
             String label = this.parseNodeToString(result.get("label"));
-            String value = this.parseNodeToString(result.get("value"));
+            String value = StringFormatter.removeNullValues(this.parseNodeToString(result.get("value")));
             // Concatenates multiple values of the same property
             if(data.containsKey(label)) {
                 data.put(label, data.get(label) + ", " + value);
