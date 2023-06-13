@@ -4,6 +4,8 @@ Exoplanet Cataloguer is a Java application that allows astronomy researchers to 
 
 The application relies on a purpose-built OWL-DL ontology that describes the domain of exoplanet study and research.
 
+![Application UI](.github/application.png)
+
 This project has been realized as an exam project of the Modeling and Knowledge Management course 2022/23 of the computer science department of the University of Camerino, held by professors Michele Loreti, Lorenzo Rossi and Andrea Morichetta.
 
 ## Build & Run

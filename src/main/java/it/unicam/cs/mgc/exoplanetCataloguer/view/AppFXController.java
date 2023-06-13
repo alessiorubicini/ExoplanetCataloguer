@@ -40,8 +40,10 @@ public class AppFXController {
     @FXML
     private void handleClickOnPlanet(Event event) {
         String selectedItem = planetsList.getSelectionModel().getSelectedItem();
-        planetDetailsRenderer.render(controller.getPlanetDetails(selectedItem), planetDetailView);
-        this.planetDetailView.setVisible(true);
+        if(selectedItem != null) {
+            planetDetailsRenderer.render(controller.getPlanetDetails(selectedItem), planetDetailView);
+            this.planetDetailView.setVisible(true);
+        }
     }
 
     @FXML

@@ -1,6 +1,10 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
 
+/**
+ * This enumeration holds the web and local ontologies URIs
+ */
 public enum OntologyURIs {
+
     XSD("http://www.w3.org/2001/XMLSchema#"),
     FOAF("http://xmlns.com/foaf/0.1/"),
     OWL("http://www.w3.org/2002/07/owl#"),

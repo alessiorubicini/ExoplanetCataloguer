@@ -1,10 +1,15 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
 
 /**
- * Utility class to format strings in specific ways
+ * Utility class to format strings in specific ways useful for this context
  */
 public class StringFormatter {
 
+    /**
+     * Returns the resource of an URI
+     * @param uri the complete URI to format
+     * @return the resource as a string
+     */
     public static String removeUriPrefix(String uri) {
         if(uri != null) {
             int index = uri.indexOf('#');
@@ -15,6 +20,11 @@ public class StringFormatter {
         }
     }
 
+    /**
+     * Converts a string from camelCase style to white spaced style
+     * @param camelCase the string in camel case format
+     * @return the white spaced string
+     */
     public static String camelCaseToSpacedString(String camelCase) {
         StringBuilder spacedString = new StringBuilder();
         for (int i = 0; i < camelCase.length(); i++) {
@@ -31,6 +41,11 @@ public class StringFormatter {
         return spacedString.toString();
     }
 
+    /**
+     * Converts any string to camelCase style
+     * @param input the string to convert
+     * @return the string in camel case style
+     */
     public static String transformToCamelCase(String input) {
         if (input == null || input.isEmpty()) return input;
 

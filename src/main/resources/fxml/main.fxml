@@ -132,14 +132,17 @@
                               <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fx:id="planetImage" fitHeight="160.0" fitWidth="389.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowSpan="2" />
-                              <VBox fx:id="planetDetailLabels" prefHeight="200.0" prefWidth="100.0" GridPane.rowSpan="2147483647">
+                              <ImageView fx:id="planetImage" fitHeight="160.0" fitWidth="389.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowSpan="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </GridPane.margin></ImageView>
+                              <Label fx:id="label" text="Planet name">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="planetDetailLabels" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
                                  <children>
-                                    <Label fx:id="label" text="Planet name">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Label>
                                     <Label fx:id="isSatelliteOf" text="is satellite of">
                                        <VBox.margin>
                                           <Insets top="5.0" />
@@ -218,7 +221,7 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <Label fx:id="comment" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="309.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="comment" prefHeight="118.0" prefWidth="309.0" text="Label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
                                  <GridPane.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </GridPane.margin>

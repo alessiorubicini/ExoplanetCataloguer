@@ -21,9 +21,10 @@ public class JSONParser implements DataParser {
         Map<String, String> data = new HashMap<>();
         ResultSet results = queryExecution.execSelect();
         while(results.hasNext()) {
-            QuerySolution statement = results.nextSolution();
-            String label = this.parseNodeToString(statement.get("label"));
-            String value = this.parseNodeToString(statement.get("value"));
+            QuerySolution result = results.nextSolution();
+            String label = this.parseNodeToString(result.get("label"));
+            String value = this.parseNodeToString(result.get("value"));
+            // Concatenates multiple values of the same property
             if(data.containsKey(label)) {
                 data.put(label, data.get(label) + ", " + value);
             } else {
@@ -36,16 +37,18 @@ public class JSONParser implements DataParser {
     /**
      * Correctly parse a RDF node to a string
      * @param node the RDF node to parse
-     * @return a string representing the node. An empty string if the node is null.
+     * @return a string representing the node. An empty string if the node is null or nor a resource or a literal
      */
     private String parseNodeToString(RDFNode node) {
         if(node == null) return "";
         if(node.isResource()) {
-            Resource res = node.asResource();
-            if(res.getProperty(RDFS.label) == null) return StringFormatter.removeUriPrefix(res.getURI());
-            else return res.getProperty(RDFS.label).getString();
-        } else {
+            Resource resource = node.asResource();
+            if(resource.getProperty(RDFS.label) == null) return StringFormatter.removeUriPrefix(resource.getURI());
+            else return resource.getProperty(RDFS.label).getString();
+        } else if(node.isLiteral()) {
             return node.asLiteral().getString();
+        } else {
+            return "";
         }
     }
 
