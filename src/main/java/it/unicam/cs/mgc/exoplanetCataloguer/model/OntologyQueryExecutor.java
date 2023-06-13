@@ -8,17 +8,14 @@ import org.apache.jena.rdf.model.Model;
 
 public class OntologyQueryExecutor implements QueryExecutor {
 
-    public QueryExecution perform(SelectionQueries query, Model model) {
+    public QueryExecution perform(SPARQLQueries query, Model model) {
         Query queryToPerform = QueryFactory.create(query.getCompleteQuery());
         return QueryExecutionFactory.create(queryToPerform, model);
     }
 
-    public QueryExecution perform(SelectionQueries query, Model model, Object...args) {
+    public QueryExecution perform(SPARQLQueries query, Model model, Object...args) {
         Query queryToPerform = QueryFactory.create(query.getCompleteQuery(args));
         return QueryExecutionFactory.create(queryToPerform, model);
     }
 
-    public void perform(UpdateQueries query, Model model) {
-
-    }
 }

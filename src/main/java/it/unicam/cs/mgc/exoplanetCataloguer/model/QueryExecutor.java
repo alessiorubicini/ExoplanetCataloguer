@@ -9,27 +9,21 @@ import org.apache.jena.rdf.model.Model;
 public interface QueryExecutor {
 
     /**
-     * Performs a Sparql selection query on the given model
+     * Performs a Sparql query on the given model
      * @param query the query to perform
      * @param model the target of the query
-     * @return an iterator over a JSON collection of ontology statements
+     * @return the query execution
      */
-    QueryExecution perform(SelectionQueries query, Model model);
+    QueryExecution perform(SPARQLQueries query, Model model);
 
     /**
-     * Performs a parameterized Sparql selection query on the given model
+     * Performs a parameterized Sparql query on the given model
      * @param query the query to perform
      * @param model the target of the query
      * @param args the arguments for the query
-     * @return an iterator over a JSON collection of ontology statements
+     * @return the query execution
      */
-    QueryExecution perform(SelectionQueries query, Model model, Object... args);
+    QueryExecution perform(SPARQLQueries query, Model model, Object... args);
 
-    /**
-     * Performs a Sparql update query on the given model
-     * @param query the query to perform
-     * @param model the target of the query
-     */
-    void perform(UpdateQueries query, Model model);
 
 }

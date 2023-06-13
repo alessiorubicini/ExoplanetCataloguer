@@ -1,8 +1,6 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.StringFormatter;
-import org.apache.jena.atlas.json.JsonObject;
-import org.apache.jena.atlas.json.JsonValue;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;

@@ -26,10 +26,6 @@ public interface SPARQLQueries {
         return getPrefixes() + this.getQueryString(args);
     }
 
-    static String getOntologyURI() {
-        return "https://www.unicam.it/cs/alessiorubicini/exoplanet-ontology#";
-    }
-
     /**
      * Get the SPARQL prefixes necessary for queries
      * @return a string containing SPARQL prefixes
