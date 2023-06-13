@@ -2,7 +2,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.controller;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.ParsedData;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.OntologyController;
-import it.unicam.cs.mgc.exoplanetCataloguer.model.SelectionQueries;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.SelectionQuery;
 
 /**
  * This class is used to manage the app state
@@ -21,7 +21,7 @@ public class Controller {
      * @return data containing the list of planets
      */
     public ParsedData getAllPlanets() {
-        return ontology.get(SelectionQueries.PLANETS_LIST);
+        return ontology.get(SelectionQuery.PLANETS_LIST);
     }
 
     /**
@@ -30,11 +30,11 @@ public class Controller {
      * @return data containing the details
      */
     public ParsedData getPlanetDetails(String planetName) {
-        return ontology.get(SelectionQueries.PLANET_DETAILS, planetName);
+        return ontology.get(SelectionQuery.PLANET_DETAILS, planetName);
     }
 
     public ParsedData searchPlanet(String planetName) {
-        return ontology.get(SelectionQueries.SEARCH_PLANET, planetName);
+        return ontology.get(SelectionQuery.SEARCH_PLANET, planetName);
     }
 
 }

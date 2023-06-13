@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * This class is used to structure and expose the parsed JSON data from a SPARQL query.
+ * This class is used to structure and expose parsed JSON data from a SPARQL query.
  */
 public class JSONData implements ParsedData {
 

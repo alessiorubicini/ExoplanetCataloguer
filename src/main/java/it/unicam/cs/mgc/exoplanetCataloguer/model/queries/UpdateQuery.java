@@ -1,9 +1,9 @@
-package it.unicam.cs.mgc.exoplanetCataloguer.model;
+package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 
 /**
- * This enumeration holds all the SPARQL query to update data on the ontology
+ * This enumeration is used to represent update queries to add, modify or delete data
  */
-public enum UpdateQueries implements SPARQLQueries {
+public enum UpdateQuery implements Query {
 
     INSERT_PLANET(""),
     INSERT_STAR(""),
@@ -11,7 +11,7 @@ public enum UpdateQueries implements SPARQLQueries {
 
     private final String query;
 
-    UpdateQueries(String query) {
+    UpdateQuery(String query) {
         this.query = query;
     }
 

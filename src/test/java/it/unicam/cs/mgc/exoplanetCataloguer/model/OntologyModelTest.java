@@ -1,7 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.DefaultModelBuilder;
-import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURI;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
 import org.junit.jupiter.api.*;
@@ -19,7 +19,7 @@ public class OntologyModelTest {
     @Test
     public void setUp() {
         DefaultModelBuilder builder = new DefaultModelBuilder();
-        model = builder.buildOntologyModel(OntModelSpec.OWL_DL_MEM_TRANS_INF, OntologyURIs.LOCAL.getURI());
+        model = builder.buildOntologyModel(OntModelSpec.OWL_DL_MEM_TRANS_INF, OntologyURI.LOCAL.getURI());
         assertNotNull(model);
     }
 

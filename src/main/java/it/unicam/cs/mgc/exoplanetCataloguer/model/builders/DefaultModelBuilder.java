@@ -1,6 +1,5 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.builders;
 
-import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

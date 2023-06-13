@@ -1,19 +1,16 @@
-package it.unicam.cs.mgc.exoplanetCataloguer.model;
+package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 
 /**
- * This enumeration holds all the SPARQL query to select data from the ontology
+ * This enumeration is used to represent a SPARQL query that select datas from the ontology
  */
-public enum SelectionQueries implements SPARQLQueries {
+public enum SelectionQuery implements Query {
     PLANETS_LIST("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . }"),
     PLANET_DETAILS("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet .  ?planet rdfs:label \"%s\" . ?planet ?label ?value . }"),
-    SEARCH_PLANET("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . FILTER(STRSTARTS(?value, \"%s\")) }"),
-    MISSION_DETAILS(""),
-    RESEARCHER_DETAILS(""),
-    STAR_DETAILS("");
+    SEARCH_PLANET("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . FILTER(STRSTARTS(?value, \"%s\")) }");
 
     private final String query;
 
-    SelectionQueries(String query) {
+    SelectionQuery(String query) {
         this.query = query;
     }
 

@@ -16,7 +16,7 @@ public interface ParsedData {
 
     /**
      * Returns all the values from the data
-     * @return
+     * @return the collection of values
      */
     Collection<String> getAllValues();
 

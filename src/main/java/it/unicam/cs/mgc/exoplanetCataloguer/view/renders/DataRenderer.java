@@ -15,4 +15,5 @@ public interface DataRenderer<T extends Node> {
      * @param node the FX element to render the data to
      */
     void render(ParsedData data, T node);
+
 }

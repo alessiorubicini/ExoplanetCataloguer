@@ -1,7 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
+import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.SelectionQuery;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,21 +26,21 @@ public class QueryExecutionTest  {
 
     @Test
     public void queryAllPlanets() {
-        JSONData data = ontology.get(SelectionQueries.PLANETS_LIST);
+        JSONData data = ontology.get(SelectionQuery.PLANETS_LIST);
         Collection<String> planets = data.getAllValues();
         assertEquals(4, planets.size());
     }
 
     @Test
     public void querySearchedPlanets() {
-        JSONData data = ontology.get(SelectionQueries.SEARCH_PLANET, "Trapp");
+        JSONData data = ontology.get(SelectionQuery.SEARCH_PLANET, "Trapp");
         Collection<String> planets = data.getAllValues();
         assertTrue(planets.size() != 0);
     }
 
     @Test
     public void queryPlanetDetails() {
-        JSONData data = ontology.get(SelectionQueries.PLANET_DETAILS, "Trappist-1d");
+        JSONData data = ontology.get(SelectionQuery.PLANET_DETAILS, "Trappist-1d");
         assertFalse(data.getAllValues().isEmpty());
         Iterator<Map.Entry<String, String>> iterator = data.iterator();
         while(iterator.hasNext()) {

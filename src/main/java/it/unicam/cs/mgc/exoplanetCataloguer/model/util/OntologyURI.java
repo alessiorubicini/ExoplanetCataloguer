@@ -3,7 +3,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
 /**
  * This enumeration holds the web and local ontologies URIs
  */
-public enum OntologyURIs {
+public enum OntologyURI {
 
     XSD("http://www.w3.org/2001/XMLSchema#"),
     FOAF("http://xmlns.com/foaf/0.1/"),
@@ -17,7 +17,7 @@ public enum OntologyURIs {
 
     private final String URI;
 
-    OntologyURIs(String URI) {
+    OntologyURI(String URI) {
         this.URI = URI;
     }
 

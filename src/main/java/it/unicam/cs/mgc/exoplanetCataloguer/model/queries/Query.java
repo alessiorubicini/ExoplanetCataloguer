@@ -1,9 +1,9 @@
-package it.unicam.cs.mgc.exoplanetCataloguer.model;
+package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 
 /**
- * Enumerations implementing this interface are used to group together SPARQL queries
+ * Enumerations implementing this interface are used to represent and group SPARQL queries
  */
-public interface SPARQLQueries {
+public interface Query {
 
     /**
      * Returns the SPARQL query as a string
