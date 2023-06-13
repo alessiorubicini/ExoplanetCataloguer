@@ -2,8 +2,11 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.InferredModelBuilder;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURIs;
+import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.reasoner.ReasonerRegistry;
+
+import java.util.concurrent.CompletableFuture;
 
 /**
  * This class is used to manage the underlying OWL ontology
@@ -17,12 +20,17 @@ public class OntologyController {
 
     public OntologyController() {
         this.queryExecutor = new OntologyQueryExecutor();
-        this.model = modelBuilder.buildDefaultModel(OntologyURIs.LOCAL.getURI());
+        this.model = modelBuilder.buildOntologyModel(OntModelSpec.OWL_DL_MEM, OntologyURIs.LOCAL.getURI());
         this.startInference();
     }
 
     public void startInference() {
         this.model = modelBuilder.buildInferredModel(model, ReasonerRegistry.getOWLReasoner());
+        /*CompletableFuture<InfModel> futureInferredModel = modelBuilder.buildInferredModelAsync(model, ReasonerRegistry.getOWLReasoner());
+        futureInferredModel.thenAccept(inferredModel -> {
+            this.model = inferredModel;
+            this.hasBeenInferred = true;
+        });*/
     }
 
     /**

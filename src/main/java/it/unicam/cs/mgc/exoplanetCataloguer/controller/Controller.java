@@ -9,11 +9,7 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.SelectionQueries;
  */
 public class Controller {
 
-    OntologyController ontology;
-
-    public Controller() {
-        this.ontology = new OntologyController();
-    }
+    private final OntologyController ontology = new OntologyController();
 
     public String getOntologyStatus() {
         if(ontology.isConsistent()) return "Ontology consistent ✓";

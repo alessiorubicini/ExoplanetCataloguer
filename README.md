@@ -6,7 +6,7 @@ The application relies on a purpose-built OWL-DL ontology that describes the dom
 
 ![Application UI](.github/application.png)
 
-This project has been realized as an exam project of the Modeling and Knowledge Management course 2022/23 of the computer science department of the University of Camerino, held by professors Michele Loreti, Lorenzo Rossi and Andrea Morichetta.
+This project has been realized as an exam project of the Knowledge Modeling and Management course 2022/23 of the computer science department of the University of Camerino, held by professors Michele Loreti, Lorenzo Rossi and Andrea Morichetta.
 
 ## Build & Run
 
