@@ -7,35 +7,24 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
  * This class is used to render the details of a planet on the labels inside the specified pane
  */
-public class PlanetDetailsRenderer implements DataRenderer<Pane> {
+public class PlanetDetailsRenderer implements DataRenderer<GridPane> {
 
-    public void render(ParsedData data, Pane pane) {
+    public void render(ParsedData data, GridPane pane) {
         ObservableList<Node> planetDetails = pane.getChildren();
         for(Node node: planetDetails) {
-            if(node.getId().equals("planetImage")) {
-                this.renderPlanetImage(node, data.getProperty("image url"));
-            }
-            if(node.getId().equals("planetDetailLabels")) {
-                this.renderDataInVBox(node, data);
-            }
-            if(node.getId().equals("comment")) {
-                this.renderDataOnLabel(node, data);
-            }
-        }
-    }
-
-    private void renderDataInVBox(Node node, ParsedData data) {
-        VBox vbox = (VBox) node;
-        ObservableList<Node> labels = vbox.getChildren();
-        for(Node label: labels) {
-            if(label instanceof Label) {
-                this.renderDataOnLabel(label, data);
+            if(node instanceof Label || node instanceof ImageView) {
+                if(node.getId().equals("planetImage")) {
+                    this.renderPlanetImage(node, data.getProperty("image url"));
+                } else {
+                    this.renderDataOnLabel(node, data);
+                }
             }
         }
     }
@@ -48,6 +37,9 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
             if(propertyName.equals("label") || propertyName.equals("comment")) {
                 label.setText(property);
             } else {
+                if(propertyName.equals("type")) {
+                    property = StringFormatter.removeUselessTypes(property);
+                }
                 label.setText(propertyName + ": " + property);
             }
         }

@@ -5,6 +5,15 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
  */
 public class StringFormatter {
 
+    public static String removeUselessTypes(String input) {
+        input = input.replace("Thing,", "");
+        System.out.println("REMOVED " + input);
+        input = input.replace(", NamedIndividual", "");
+        System.out.println("REMOVED " + input);
+        return input;
+    }
+
+
     /**
      * Returns the resource of an URI
      * @param uri the complete URI to format
@@ -41,43 +50,5 @@ public class StringFormatter {
         return spacedString.toString();
     }
 
-    /**
-     * Converts any string to camelCase style
-     * @param input the string to convert
-     * @return the string in camel case style
-     */
-    public static String transformToCamelCase(String input) {
-        if (input == null || input.isEmpty()) return input;
-
-        StringBuilder camelCase = new StringBuilder();
-        boolean capitalizeNext = false;
-
-        for (char c : input.toCharArray()) {
-            if (Character.isWhitespace(c)) {
-                capitalizeNext = true;
-            } else if (capitalizeNext) {
-                camelCase.append(Character.toUpperCase(c));
-                capitalizeNext = false;
-            } else {
-                camelCase.append(Character.toLowerCase(c));
-            }
-        }
-
-        return camelCase.toString();
-    }
-
-    public static String removeNullValues(String input) {
-        String[] values = input.split(",\\s*");
-        StringBuilder result = new StringBuilder();
-
-        for (String value : values) {
-            if (value.trim().equalsIgnoreCase("null")) {
-                continue;
-            }
-            result.append(value.trim()).append(" ");
-        }
-
-        return result.toString().trim();
-    }
 }
 
