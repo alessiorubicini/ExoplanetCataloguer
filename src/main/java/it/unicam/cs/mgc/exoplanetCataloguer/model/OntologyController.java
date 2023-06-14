@@ -26,11 +26,6 @@ public class OntologyController {
 
     public void startInference() {
         this.model = modelBuilder.buildInferredModel(model, PelletReasonerFactory.THE_SPEC.getReasoner());
-        /*CompletableFuture<InfModel> futureInferredModel = modelBuilder.buildInferredModelAsync(model, ReasonerRegistry.getOWLReasoner());
-        futureInferredModel.thenAccept(inferredModel -> {
-            this.model = inferredModel;
-            this.hasBeenInferred = true;
-        });*/
     }
 
     /**
@@ -56,7 +51,7 @@ public class OntologyController {
 
     /**
      * Posts a data update to the ontology model
-     * @param query
+     * @param query the SPARQL update query
      */
     public void post(UpdateQuery query) {
         this.queryExecutor.perform(query, this.model);

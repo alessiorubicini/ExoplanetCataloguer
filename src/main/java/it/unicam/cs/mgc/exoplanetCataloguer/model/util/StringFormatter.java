@@ -5,17 +5,19 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
  */
 public class StringFormatter {
 
+    /**
+     * Removes useless types from inferenced type statement
+     * @param input the
+     * @return
+     */
     public static String removeUselessTypes(String input) {
         input = input.replace("Thing,", "");
-        System.out.println("REMOVED " + input);
         input = input.replace(", NamedIndividual", "");
-        System.out.println("REMOVED " + input);
         return input;
     }
 
-
     /**
-     * Returns the resource of an URI
+     * Returns the resource of a URI
      * @param uri the complete URI to format
      * @return the resource as a string
      */
