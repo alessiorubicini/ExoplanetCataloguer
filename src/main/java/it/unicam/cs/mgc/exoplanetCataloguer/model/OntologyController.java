@@ -4,9 +4,9 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.InferredModelBuilder;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.SelectionQuery;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.UpdateQuery;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURI;
+import openllet.jena.PelletReasonerFactory;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.reasoner.ReasonerRegistry;
 
 /**
  * This class is used to manage the underlying OWL ontology
@@ -25,7 +25,7 @@ public class OntologyController {
     }
 
     public void startInference() {
-        this.model = modelBuilder.buildInferredModel(model, ReasonerRegistry.getOWLReasoner());
+        this.model = modelBuilder.buildInferredModel(model, PelletReasonerFactory.THE_SPEC.getReasoner());
         /*CompletableFuture<InfModel> futureInferredModel = modelBuilder.buildInferredModelAsync(model, ReasonerRegistry.getOWLReasoner());
         futureInferredModel.thenAccept(inferredModel -> {
             this.model = inferredModel;

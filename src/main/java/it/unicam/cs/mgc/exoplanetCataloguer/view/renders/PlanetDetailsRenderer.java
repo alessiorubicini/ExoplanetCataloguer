@@ -24,7 +24,7 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
             if(node.getId().equals("planetDetailLabels")) {
                 this.renderDataInVBox(node, data);
             }
-            if(node.getId().equals("label") || node.getId().equals("comment")) {
+            if(node.getId().equals("comment")) {
                 this.renderDataOnLabel(node, data);
             }
         }
@@ -57,8 +57,8 @@ public class PlanetDetailsRenderer implements DataRenderer<Pane> {
         ImageView planetImageView = (ImageView) node;
         Image planetImage = new Image(url, true);
         planetImageView.setPreserveRatio(true);
-        planetImageView.setFitWidth(300);
-        planetImageView.setFitHeight(300);
+        planetImageView.setFitWidth(280);
+        planetImageView.setFitHeight(280);
         planetImageView.setImage(planetImage);
     }
 

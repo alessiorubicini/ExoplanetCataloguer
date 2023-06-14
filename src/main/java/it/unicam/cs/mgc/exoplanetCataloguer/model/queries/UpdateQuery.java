@@ -3,7 +3,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 /**
  * This enumeration is used to represent update queries to add, modify or delete data
  */
-public enum UpdateQuery implements Query {
+public enum UpdateQuery implements SparqlQuery {
 
     INSERT_PLANET(""),
     INSERT_STAR(""),
