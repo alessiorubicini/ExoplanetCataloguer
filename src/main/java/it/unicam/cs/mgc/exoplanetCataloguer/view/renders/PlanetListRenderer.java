@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 
 /**
- * This class is used to render the list of planets on the list view.
+ * This class is used to render the list of planets on the side list view.
  */
 public class PlanetListRenderer implements DataRenderer<ListView<String>> {
 

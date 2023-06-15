@@ -29,7 +29,8 @@ public class OntologyController {
     }
 
     /**
-     * Gets data from the ontology model
+     * Gets data from the ontology model.
+     *
      * @param query the data
      * @return the data chunk result of the query
      */
@@ -39,7 +40,8 @@ public class OntologyController {
     }
 
     /**
-     * Gets data from the ontology model
+     * Gets data from the ontology model passing some arguments.
+     *
      * @param query the data
      * @param args the parameter for the query
      * @return the data chunk result of the query
@@ -50,7 +52,8 @@ public class OntologyController {
     }
 
     /**
-     * Posts a data update to the ontology model
+     * Posts a data update to the ontology model.
+     *
      * @param query the SPARQL update query
      */
     public void post(UpdateQuery query) {

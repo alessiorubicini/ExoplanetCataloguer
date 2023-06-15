@@ -13,11 +13,12 @@ public class Controller {
 
     public String getOntologyStatus() {
         if(ontology.isConsistent()) return "Ontology consistent ✓";
-        else return "Inconsistent ontology ╳";
+        else return "Inconsistent ontology ｘ";
     }
 
     /**
      * Gets the list of planets in the ontology.
+     *
      * @return data containing the list of planets
      */
     public ParsedData getAllPlanets() {
@@ -26,6 +27,7 @@ public class Controller {
 
     /**
      * Gets the details about the given planet.
+     *
      * @param planetName the name of the planet
      * @return data containing the details
      */
@@ -33,8 +35,14 @@ public class Controller {
         return ontology.get(SelectionQuery.PLANET_DETAILS, planetName);
     }
 
-    public ParsedData searchPlanet(String planetName) {
-        return ontology.get(SelectionQuery.SEARCH_PLANET, planetName);
+    /**
+     * Filters the planets list by the searched name.
+     *
+     * @param searchedName the searched name for the planet
+     * @return the filtered list of planets.
+     */
+    public ParsedData searchPlanet(String searchedName) {
+        return ontology.get(SelectionQuery.SEARCH_PLANET, searchedName);
     }
 
 }

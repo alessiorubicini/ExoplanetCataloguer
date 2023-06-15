@@ -27,6 +27,12 @@ public class PlanetDetailsRenderer implements DataRenderer<GridPane> {
         }
     }
 
+    /**
+     * Renders specific value from data on a single label. The rendered value is given by
+     * the property key represented by the label fx id
+     * @param node the FX label to rendere the data to
+     * @param data the data to render
+     */
     private void renderDataOnLabel(Node node, ParsedData data) {
         Label label = (Label) node;
         String propertyName = StringFormatter.camelCaseToSpacedString(label.getId());
@@ -43,6 +49,11 @@ public class PlanetDetailsRenderer implements DataRenderer<GridPane> {
         }
     }
 
+    /**
+     * Renders a planet image into the FX image view from an URL
+     * @param node the FX image view to render the image into
+     * @param url the url of the image
+     */
     private void renderPlanetImage(Node node, String url) {
         ImageView planetImageView = (ImageView) node;
         Image planetImage = new Image(url, true);

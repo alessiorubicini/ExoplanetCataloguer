@@ -10,6 +10,7 @@ public class InferredModelBuilder extends DefaultModelBuilder {
 
     /**
      * Creates an inferred model.
+     *
      * @param model the input model.
      * @param reasoner the reasoner to use for inference.
      * @return A inferred model.
@@ -46,6 +47,7 @@ public class InferredModelBuilder extends DefaultModelBuilder {
 
     /**
      * Checks if the model is valid and consistent
+     *
      * @return true if it's valid
      */
     public static boolean isModelConsistent(InfModel model) {
@@ -55,6 +57,7 @@ public class InferredModelBuilder extends DefaultModelBuilder {
 
     /**
      * Checks if the given statement has been correctly inferred on the model
+     *
      * @param subject the subject of the statement
      * @param predicate the predicate of the statement
      * @param object the object of the statement

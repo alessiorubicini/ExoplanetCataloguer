@@ -9,13 +9,15 @@ public interface ParsedData {
 
     /**
      * Returns the value of a specific property in the data.
+     *
      * @param property the key value
      * @return the value corresponding to the key
      */
     String getProperty(String property);
 
     /**
-     * Returns all the values from the data
+     * Returns all the values from the data.
+     *
      * @return the collection of values
      */
     Collection<String> getAllValues();

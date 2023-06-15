@@ -27,8 +27,7 @@ public class DefaultModelBuilder implements ModelBuilder {
     }
 
     public Model buildOntologyModel(OntModelSpec modelSpecification) {
-        Model model = ModelFactory.createOntologyModel(modelSpecification);
-        return model;
+        return ModelFactory.createOntologyModel(modelSpecification);
     }
 
     public Model buildOntologyModel(OntModelSpec modelSpecification, String...filenames) {

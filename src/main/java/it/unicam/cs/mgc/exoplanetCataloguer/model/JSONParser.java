@@ -15,8 +15,9 @@ import java.util.*;
  */
 public class JSONParser implements DataParser {
 
+    private final Map<String, String> data = new HashMap<>();
+
     public JSONData parse(QueryExecution queryExecution) {
-        Map<String, String> data = new HashMap<>();
         ResultSet results = queryExecution.execSelect();
         while(results.hasNext()) {
             QuerySolution result = results.nextSolution();
@@ -33,20 +34,32 @@ public class JSONParser implements DataParser {
     }
 
     /**
-     * Correctly parse a RDF node to a string
+     * Parse an RDF node to a string.
+     *
      * @param node the RDF node to parse
      * @return a string representing the node. An empty string if the node is null or nor a resource or a literal
      */
     private String parseNodeToString(RDFNode node) {
         if(node == null) return "";
         if(node.isResource()) {
-            Resource resource = node.asResource();
-            if(resource.getProperty(RDFS.label) == null) return StringFormatter.removeUriPrefix(resource.getURI());
-            else return resource.getProperty(RDFS.label).getString();
-        } else if(node.isLiteral()) {
-            return node.asLiteral().getString();
+            return this.getNodeLabel(node.asResource());
         } else {
-            return "";
+            return node.asLiteral().getString();
+        }
+    }
+
+    /**
+     * Returns the RDF label of a resource node. If the resource does not have a label, returns
+     * the name of the resource extracted from its URI.
+     *
+     * @param resource the resource node
+     * @return the RDF label representation as a string
+     */
+    private String getNodeLabel(Resource resource) {
+        if(resource.getProperty(RDFS.label) == null) {
+            return StringFormatter.removeUriPrefix(resource.getURI());
+        } else {
+            return resource.getProperty(RDFS.label).getString();
         }
     }
 
