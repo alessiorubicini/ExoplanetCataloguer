@@ -1,6 +1,6 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model;
 
-import it.unicam.cs.mgc.exoplanetCataloguer.model.util.StringFormatter;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.PropertiesFormatter;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
@@ -57,7 +57,7 @@ public class JSONParser implements DataParser {
      */
     private String getNodeLabel(Resource resource) {
         if(resource.getProperty(RDFS.label) == null) {
-            return StringFormatter.removeUriPrefix(resource.getURI());
+            return PropertiesFormatter.removeUriPrefix(resource.getURI());
         } else {
             return resource.getProperty(RDFS.label).getString();
         }

@@ -5,7 +5,7 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.OntologyController;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.SelectionQuery;
 
 /**
- * This class is used to manage the app state
+ * This class is used to manage the app state.
  */
 public class Controller {
 
@@ -17,7 +17,7 @@ public class Controller {
     }
 
     /**
-     * Gets the list of planets in the ontology.
+     * Returns the list of planets in the ontology.
      *
      * @return data containing the list of planets
      */
@@ -26,10 +26,10 @@ public class Controller {
     }
 
     /**
-     * Gets the details about the given planet.
+     * Returns the details about the given planet.
      *
      * @param planetName the name of the planet
-     * @return data containing the details
+     * @return data containing the planet details
      */
     public ParsedData getPlanetDetails(String planetName) {
         return ontology.get(SelectionQuery.PLANET_DETAILS, planetName);

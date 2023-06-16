@@ -4,13 +4,16 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.DefaultModelBuilder;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURI;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.RDF;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-@Disabled
+
 public class OntologyModelTest {
 
     private Model model;
@@ -19,8 +22,17 @@ public class OntologyModelTest {
     @Test
     public void setUp() {
         DefaultModelBuilder builder = new DefaultModelBuilder();
-        model = builder.buildOntologyModel(OntModelSpec.OWL_DL_MEM_TRANS_INF, OntologyURI.LOCAL.getURI());
+        this.model = builder.buildOntologyModel(OntModelSpec.OWL_DL_MEM, OntologyURI.LOCAL.getURI());
         assertNotNull(model);
     }
+
+    @Test
+    public void testCorrectStatementPresence() {
+        Resource subject = model.getResource(OntologyURI.EXO.getURI() + "Trappist-1d");
+        Resource object = model.getResource(OntologyURI.EXO.getURI() + "Planet");
+        assertTrue(model.contains(subject, RDF.type, object));
+    }
+
+
 
 }

@@ -9,7 +9,7 @@ import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
 
 /**
- * This class is used to manage the underlying OWL ontology
+ * This class is used to manage the underlying ontology.
  */
 public class OntologyController {
 

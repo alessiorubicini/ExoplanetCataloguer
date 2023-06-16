@@ -29,7 +29,6 @@ public class InferredModelBuilder extends DefaultModelBuilder {
      */
     public CompletableFuture<InfModel> buildInferredModelAsync(Model model, Reasoner reasoner) {
         CompletableFuture<InfModel> future = new CompletableFuture<>();
-
         Thread thread = new Thread(() -> {
             try {
                 reasoner.bindSchema(model);
@@ -39,9 +38,7 @@ public class InferredModelBuilder extends DefaultModelBuilder {
                 future.completeExceptionally(e);
             }
         });
-
         thread.start();
-
         return future;
     }
 

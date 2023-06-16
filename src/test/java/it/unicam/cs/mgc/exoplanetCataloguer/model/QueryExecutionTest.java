@@ -35,7 +35,7 @@ public class QueryExecutionTest  {
     public void querySearchedPlanets() {
         JSONData data = ontology.get(SelectionQuery.SEARCH_PLANET, "Trapp");
         Collection<String> planets = data.getAllValues();
-        assertTrue(planets.size() != 0);
+        assertEquals(2, planets.size());
     }
 
     @Test

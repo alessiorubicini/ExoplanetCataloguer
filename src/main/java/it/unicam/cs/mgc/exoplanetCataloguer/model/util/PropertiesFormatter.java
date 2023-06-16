@@ -1,17 +1,17 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.util;
 
 /**
- * Utility class to format strings in specific ways useful for this context
+ * This class is used to format and clean up properties strings.
  */
-public class StringFormatter {
+public class PropertiesFormatter {
 
     /**
      * Removes useless types from inferenced type statement
-     * @param input the
-     * @return
+     * @param input the rdf:type string
+     * @return the string without unnecessary types for the context
      */
     public static String removeUselessTypes(String input) {
-        input = input.replace("Thing,", "");
+        input = input.replace("Thing, ", "");
         input = input.replace(", NamedIndividual", "");
         return input;
     }

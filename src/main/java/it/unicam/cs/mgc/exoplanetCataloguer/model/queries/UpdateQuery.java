@@ -6,8 +6,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 public enum UpdateQuery implements SparqlQuery {
 
     INSERT_PLANET(""),
-    INSERT_STAR(""),
-    INSERT_RESEARCHER("");
+    INSERT_STAR("");
 
     private final String query;
 
