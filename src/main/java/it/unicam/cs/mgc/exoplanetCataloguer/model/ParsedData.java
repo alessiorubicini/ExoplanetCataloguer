@@ -3,7 +3,7 @@ package it.unicam.cs.mgc.exoplanetCataloguer.model;
 import java.util.Collection;
 
 /**
- * Classes implementing this interface are used to expose dictionary-like data
+ * Classes implementing this interface are used to expose parsed data.
  */
 public interface ParsedData {
 

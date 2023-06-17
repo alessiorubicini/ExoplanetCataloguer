@@ -9,7 +9,7 @@ import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
 
 /**
- * This class is used to manage the underlying ontology.
+ * This class is used to manage the underlying app ontology.
  */
 public class OntologyController {
 
@@ -33,7 +33,7 @@ public class OntologyController {
      * @param query the data
      * @return the data chunk result of the query
      */
-    public JSONData get(SelectionQuery query) {
+    public ParsedData get(SelectionQuery query) {
         JSONParser parser = new JSONParser();
         return parser.parse(queryExecutor.perform(query, this.model));
     }
@@ -45,7 +45,7 @@ public class OntologyController {
      * @param args the parameter for the query
      * @return the data chunk result of the query
      */
-    public JSONData get(SelectionQuery query, Object...args) {
+    public ParsedData get(SelectionQuery query, Object...args) {
         JSONParser parser = new JSONParser();
         return parser.parse(queryExecutor.perform(query, this.model, args));
     }

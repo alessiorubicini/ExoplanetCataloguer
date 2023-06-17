@@ -17,7 +17,7 @@ public class JSONParser implements DataParser {
 
     private final Map<String, String> data = new HashMap<>();
 
-    public JSONData parse(QueryExecution queryExecution) {
+    public ParsedData parse(QueryExecution queryExecution) {
         ResultSet results = queryExecution.execSelect();
         while(results.hasNext()) {
             QuerySolution result = results.nextSolution();
