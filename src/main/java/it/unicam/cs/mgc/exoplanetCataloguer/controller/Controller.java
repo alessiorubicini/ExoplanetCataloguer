@@ -11,11 +11,6 @@ public class Controller {
 
     private final OntologyController ontology = new OntologyController();
 
-    public String getOntologyStatus() {
-        if(ontology.isConsistent()) return "Ontology consistent ✓";
-        else return "Inconsistent ontology ｘ";
-    }
-
     /**
      * Returns the list of planets in the ontology.
      *
@@ -43,6 +38,19 @@ public class Controller {
      */
     public ParsedData searchPlanet(String searchedName) {
         return ontology.get(SelectionQuery.SEARCH_PLANET, searchedName);
+    }
+
+    /**
+     * Returns the ontology consistency status
+     *
+     * @return the ontology consistency status as a string
+     */
+    public String getOntologyConsistencyStatus() {
+        if(ontology.isConsistent()) {
+            return "Ontology consistent ✓";
+        } else {
+            return "Inconsistent ontology ｘ";
+        }
     }
 
 }

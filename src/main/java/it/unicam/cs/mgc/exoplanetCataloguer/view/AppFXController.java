@@ -32,7 +32,7 @@ public class AppFXController {
     private GridPane planetDetailView;
 
     public void initialize() {
-        ontologyStatus.setText(this.controller.getOntologyStatus());
+        ontologyStatus.setText(this.controller.getOntologyConsistencyStatus());
         planetDetailView.setVisible(false);
         planetListRenderer.render(controller.getAllPlanets(), planetsList);
     }

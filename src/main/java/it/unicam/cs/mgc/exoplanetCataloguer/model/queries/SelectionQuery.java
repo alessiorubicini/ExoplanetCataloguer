@@ -1,7 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.model.queries;
 
 /**
- * This enumeration is used to represent a SPARQL query that select datas from the ontology
+ * This enumeration is used to represent a SPARQL query that select data from the ontology
  */
 public enum SelectionQuery implements SparqlQuery {
     PLANETS_LIST("SELECT ?label ?value WHERE { ?planet rdf:type exo:Planet . BIND(?planet AS ?label) . ?planet rdfs:label ?value . }"),

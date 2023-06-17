@@ -16,7 +16,6 @@ public class OntologyController {
     private Model model;
     private final InferredModelBuilder modelBuilder = new InferredModelBuilder();
     private final OntologyQueryExecutor queryExecutor;
-    private boolean hasBeenInferred = false;
 
     public OntologyController() {
         this.queryExecutor = new OntologyQueryExecutor();
@@ -36,7 +35,7 @@ public class OntologyController {
      */
     public JSONData get(SelectionQuery query) {
         JSONParser parser = new JSONParser();
-        return parser.parse(this.queryExecutor.perform(query, this.model));
+        return parser.parse(queryExecutor.perform(query, this.model));
     }
 
     /**
@@ -48,7 +47,7 @@ public class OntologyController {
      */
     public JSONData get(SelectionQuery query, Object...args) {
         JSONParser parser = new JSONParser();
-        return parser.parse(this.queryExecutor.perform(query, this.model, args));
+        return parser.parse(queryExecutor.perform(query, this.model, args));
     }
 
     /**
@@ -57,15 +56,11 @@ public class OntologyController {
      * @param query the SPARQL update query
      */
     public void post(UpdateQuery query) {
-        this.queryExecutor.perform(query, this.model);
+        queryExecutor.perform(query, this.model);
     }
 
     public boolean isConsistent() {
 
         return true;
-    }
-
-    public boolean hasBeenInferred() {
-        return hasBeenInferred;
     }
 }
