@@ -1795,6 +1795,7 @@
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">11.1843</exoplanet-ontology:orbitalPeriod>
         <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.05</exoplanet-ontology:semiMajorAxis>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">229.0</exoplanet-ontology:surfaceTemperature>
+        <rdfs:comment>Proxima Centauri B is an exoplanet located in the habitable zone of the red dwarf star Proxima Centauri, which is the closest known star to our solar system, located approximately 4.24 light-years away. Discovered in 2016, Proxima Centauri B gained significant attention due to its potential for hosting liquid water, which is a key ingredient for the development of life as we know it.</rdfs:comment>
         <rdfs:label>Proxima Centauri b</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1815,6 +1816,7 @@
         <exoplanet-ontology:orbitalPeriod rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.122</exoplanet-ontology:orbitalPeriod>
         <exoplanet-ontology:semiMajorAxis rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.02885</exoplanet-ontology:semiMajorAxis>
         <exoplanet-ontology:surfaceTemperature rdf:datatype="http://www.w3.org/2001/XMLSchema#double">360.0</exoplanet-ontology:surfaceTemperature>
+        <rdfs:comment>Proxima Centauri D is an exoplanet located in the habitable zone of the Proxima Centauri star system. It has captured the interest of scientists and astronomers due to its potential for supporting liquid water on its surface, which is a key ingredient for the development of life as we know.</rdfs:comment>
         <rdfs:label>Proxima Centauri d</rdfs:label>
     </owl:NamedIndividual>
     
