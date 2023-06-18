@@ -6,6 +6,7 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.UpdateQuery;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURI;
 import openllet.jena.PelletReasonerFactory;
 import org.apache.jena.ontology.OntModelSpec;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.*;
 
 /**
@@ -15,14 +16,16 @@ public class OntologyController {
 
     private Model model;
     private final InferredModelBuilder modelBuilder = new InferredModelBuilder();
-    private final OntologyQueryExecutor queryExecutor;
+    private final OntologyQueryExecutor queryExecutor = new OntologyQueryExecutor();
 
     public OntologyController() {
-        this.queryExecutor = new OntologyQueryExecutor();
         this.model = modelBuilder.buildOntologyModel(OntModelSpec.OWL_DL_MEM, OntologyURI.LOCAL.getURI());
         this.startInference();
     }
 
+    /**
+     * Starts inference on the RDF model replacing it with a new inferred model.
+     */
     public void startInference() {
         this.model = modelBuilder.buildInferredModel(model, PelletReasonerFactory.THE_SPEC.getReasoner());
     }
@@ -35,7 +38,8 @@ public class OntologyController {
      */
     public ParsedData get(SelectionQuery query) {
         JSONParser parser = new JSONParser();
-        return parser.parse(queryExecutor.perform(query, this.model));
+        QueryExecution queryExecution = queryExecutor.perform(query, this.model);
+        return parser.parse(queryExecution);
     }
 
     /**
@@ -47,7 +51,8 @@ public class OntologyController {
      */
     public ParsedData get(SelectionQuery query, Object...args) {
         JSONParser parser = new JSONParser();
-        return parser.parse(queryExecutor.perform(query, this.model, args));
+        QueryExecution queryExecution = queryExecutor.perform(query, this.model, args);
+        return parser.parse(queryExecution);
     }
 
     /**
@@ -59,8 +64,16 @@ public class OntologyController {
         queryExecutor.perform(query, this.model);
     }
 
+    /**
+     * Checks if the built inferred model is consistent.
+     *
+     * @return true if the model is consistent
+     */
     public boolean isConsistent() {
-
-        return true;
+        if(this.model instanceof InfModel) {
+            return InferredModelBuilder.isModelConsistent((InfModel) model);
+        }
+        return false;
     }
+
 }

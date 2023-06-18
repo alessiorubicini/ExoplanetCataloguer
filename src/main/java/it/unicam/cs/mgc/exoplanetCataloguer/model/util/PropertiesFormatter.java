@@ -41,9 +41,7 @@ public class PropertiesFormatter {
         for (int i = 0; i < camelCase.length(); i++) {
             char currentChar = camelCase.charAt(i);
             if (Character.isUpperCase(currentChar)) {
-                if (i > 0) {
-                    spacedString.append(' ');
-                }
+                if (i > 0) spacedString.append(' ');
                 spacedString.append(Character.toLowerCase(currentChar));
             } else {
                 spacedString.append(currentChar);

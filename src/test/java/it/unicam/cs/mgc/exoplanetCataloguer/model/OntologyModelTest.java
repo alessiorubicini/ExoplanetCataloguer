@@ -4,15 +4,11 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.builders.DefaultModelBuilder;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.OntologyURI;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
 import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OntologyModelTest {
 
@@ -32,7 +28,5 @@ public class OntologyModelTest {
         Resource object = model.getResource(OntologyURI.EXO.getURI() + "Planet");
         assertTrue(model.contains(subject, RDF.type, object));
     }
-
-
 
 }

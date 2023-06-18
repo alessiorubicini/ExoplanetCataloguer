@@ -12,7 +12,7 @@ import java.util.Objects;
  */
 public class DefaultModelBuilder implements ModelBuilder {
 
-    FileManager fileManager = FileManager.getInternal();
+    private final FileManager fileManager = FileManager.getInternal();
 
     public Model buildDefaultModel() {
         return ModelFactory.createDefaultModel();

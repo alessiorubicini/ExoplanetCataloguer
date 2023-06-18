@@ -5,7 +5,7 @@ import it.unicam.cs.mgc.exoplanetCataloguer.model.OntologyController;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.queries.SelectionQuery;
 
 /**
- * This class is used to manage the app state.
+ * This class is used to manage the application state.
  */
 public class Controller {
 
