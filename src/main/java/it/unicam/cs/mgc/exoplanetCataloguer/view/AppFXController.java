@@ -4,11 +4,14 @@ import it.unicam.cs.mgc.exoplanetCataloguer.controller.Controller;
 import it.unicam.cs.mgc.exoplanetCataloguer.model.util.PropertiesFormatter;
 import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetDetailsRenderer;
 import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetListRenderer;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.Event;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -40,6 +43,7 @@ public class AppFXController {
 
     @FXML
     private void handleClickOnPlanet(Event event) {
+        if(planetDetailView.isVisible()) this.cleanPlanetDetailFields();
         String selectedItem = planetsList.getSelectionModel().getSelectedItem();
         if(selectedItem != null) {
             planetDetailsRenderer.render(controller.getPlanetDetails(selectedItem), planetDetailView);
@@ -55,6 +59,21 @@ public class AppFXController {
         } else {
             searchedText = PropertiesFormatter.stringToFirstLetterUpperCase(searchedText);
             planetListRenderer.render(controller.searchPlanet(searchedText), planetsList);
+        }
+    }
+
+    /**
+     * Cleans all the nodes in the planet detail view.
+     */
+    private void cleanPlanetDetailFields() {
+        ObservableList<Node> planetDetails = planetDetailView.getChildren();
+        for(Node node: planetDetails) {
+            if(node instanceof Label label) {
+                label.setText(PropertiesFormatter.camelCaseToSpacedString(node.getId()) + ": ");
+            }
+            if(node instanceof ImageView imageView) {
+                imageView.setImage(null);
+            }
         }
     }
 }
