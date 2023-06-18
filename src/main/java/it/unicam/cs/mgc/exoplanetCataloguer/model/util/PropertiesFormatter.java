@@ -52,5 +52,9 @@ public class PropertiesFormatter {
         return spacedString.toString();
     }
 
+    public static String stringToFirstLetterUpperCase(String string) {
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
+    }
+
 }
 

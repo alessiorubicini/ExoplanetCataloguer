@@ -1,6 +1,7 @@
 package it.unicam.cs.mgc.exoplanetCataloguer.view;
 
 import it.unicam.cs.mgc.exoplanetCataloguer.controller.Controller;
+import it.unicam.cs.mgc.exoplanetCataloguer.model.util.PropertiesFormatter;
 import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetDetailsRenderer;
 import it.unicam.cs.mgc.exoplanetCataloguer.view.renders.PlanetListRenderer;
 import javafx.fxml.FXML;
@@ -52,6 +53,7 @@ public class AppFXController {
         if(searchedText.isEmpty()) {
             planetListRenderer.render(controller.getAllPlanets(), planetsList);
         } else {
+            searchedText = PropertiesFormatter.stringToFirstLetterUpperCase(searchedText);
             planetListRenderer.render(controller.searchPlanet(searchedText), planetsList);
         }
     }

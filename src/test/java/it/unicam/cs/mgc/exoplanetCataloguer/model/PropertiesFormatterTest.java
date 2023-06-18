@@ -27,4 +27,11 @@ public class PropertiesFormatterTest {
         assertEquals("is mainly composed of", result);
     }
 
+    @Test
+    public void testStringToFirstLetterUpperCase() {
+        String test = "trappist-1d";
+        String result = PropertiesFormatter.stringToFirstLetterUpperCase(test);
+        assertEquals("Trappist-1d", result);
+    }
+
 }
