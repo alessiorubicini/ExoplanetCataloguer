@@ -10,9 +10,9 @@ Thanks to the [Apache Jena API](https://jena.apache.org/documentation/inference/
 
 It should be specified that from a scientific point of view there are no well-defined parameters to deduce the habitability of an exoplanet as it depends on various factors and on the definitions and models used by scientists. For educational purposes of the project, limit ranges have been defined in which planets are usually considered potentially habitable.
 
+For more details read the **[project report](Relazione_progetto.pdf)**.
+
 This project has been realized as an exam project of the Knowledge Modeling and Management course 2022/23 of the computer science department of the University of Camerino, held by professors Michele Loreti, Lorenzo Rossi and Andrea Morichetta.
-
-
 
 ## Build & Run
 
